@@ -6,7 +6,8 @@ package Opendata::GTFS::Standard::Moops {
 
     use base 'Moops';
     use List::AllUtils();
-    use Map::Metro::Types();
+    use Opendata::GTFS::Types();
+    
 
     sub import {
         my $class = shift;

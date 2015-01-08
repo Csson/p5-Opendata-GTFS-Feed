@@ -10,6 +10,7 @@ package Opendata::GTFS::Feed;
 # ABSTRACT: Short intro
 
 sub parse {
+	shift;
 	return Opendata::GTFS::Feed::Parser->new(@_);
 }
 
