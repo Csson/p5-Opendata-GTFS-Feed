@@ -14,7 +14,7 @@ use File::BOM;
 use Opendata::GTFS::Type::Agency;
 use Opendata::GTFS::Type::Calendar;
 use Opendata::GTFS::Type::CalendarDate;
-use Opendata::GTFS::Type::FairAttribute;
+use Opendata::GTFS::Type::FareAttribute;
 use Opendata::GTFS::Type::Route;
 use Opendata::GTFS::Type::Stop;
 use Opendata::GTFS::Type::StopTime;
@@ -36,13 +36,14 @@ class Opendata::GTFS::Feed::Parser using Moose {
     );
 
     my @attributes = (
-        Agency,       'agency.txt',
-        Stop,         'stops.txt',
-        Route,        'routes.txt',
-        Trip,         'trips.txt',
-        StopTime,     'stop_times.txt',
-        Calendar,     'calendar.txt',
-        CalendarDate, 'calendar_dates.txt',
+        Agency,        'agency.txt',
+        Stop,          'stops.txt',
+        Route,         'routes.txt',
+        Trip,          'trips.txt',
+        StopTime,      'stop_times.txt',
+        Calendar,      'calendar.txt',
+        CalendarDate,  'calendar_dates.txt',
+        FareAttribute, 'fare_attributes.txt',
     );
 
     fun type_to_singular($type) {

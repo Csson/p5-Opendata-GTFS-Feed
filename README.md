@@ -4,7 +4,7 @@ Opendata::GTFS::Feed - Short intro
 
 # VERSION
 
-Version 0.0001, released 2015-01-08.
+Version 0.0001, released 2015-01-09.
 
 # SYNOPSIS
 

@@ -8,19 +8,22 @@ use Opendata::GTFS::Feed;
 # replace with the actual test
 ok 1;
 
-my $feed = Opendata::GTFS::Feed->parse(file => 't/corpus/gtfs/sample-feed.txt');
+my $feed = Opendata::GTFS::Feed->parse(file => 't/corpus/gtfs/sample-feed.zip');
 
 is $feed->agency_count, 1, 'Correct number of agencies';
 
 is $feed->calendar_count, 2, 'Correct number of calendars';
 
-is $feed->route_count, 1, 'Correct number of routes';
+is $feed->calendar_date_count, 1, 'Correct number of calendar dates';
 
-is $feed->stop_count, 19, 'Correct number of stops';
+is $feed->fare_attribute_count, 2, 'Correct number of fare attributes';
 
-is $feed->stoptime_count, 802, 'Correct number of stoptimes';
+is $feed->route_count, 5, 'Correct number of routes';
 
-is $feed->trip_count, 62, 'Correct number of trips';
+is $feed->stop_count, 9, 'Correct number of stops';
 
+is $feed->stop_time_count, 28, 'Correct number of stop times';
+
+is $feed->trip_count, 11, 'Correct number of trips';
 
 done_testing;
