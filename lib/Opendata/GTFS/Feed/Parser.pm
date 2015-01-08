@@ -16,6 +16,7 @@ use Opendata::GTFS::Type::Calendar;
 use Opendata::GTFS::Type::CalendarDate;
 use Opendata::GTFS::Type::FareAttribute;
 use Opendata::GTFS::Type::FareRule;
+use Opendata::GTFS::Type::Frequency;
 use Opendata::GTFS::Type::Route;
 use Opendata::GTFS::Type::Shape;
 use Opendata::GTFS::Type::Stop;
@@ -47,7 +48,8 @@ class Opendata::GTFS::Feed::Parser using Moose {
         CalendarDate,  'calendar_dates.txt',
         FareAttribute, 'fare_attributes.txt',
         FareRule,      'fare_rules.txt',
-        Shape,         'shapes.txt'
+        Shape,         'shapes.txt',
+        Frequency,     'frequencies.txt',
     );
 
     fun type_to_singular($type) {
