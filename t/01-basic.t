@@ -22,6 +22,8 @@ is $feed->fare_rule_count, 4, 'Correct number of fare rules';
 
 is $feed->route_count, 5, 'Correct number of routes';
 
+is $feed->shape_count, 3, 'Correct number of shape';
+
 is $feed->stop_count, 9, 'Correct number of stops';
 
 is $feed->stop_time_count, 28, 'Correct number of stop times';
