@@ -1,10 +1,10 @@
 use Opendata::GTFS::Standard::Moops;
 
 # VERSION
-# PODNAME: Opendata::GTFS::Type::FairAttribute
+# PODNAME: Opendata::GTFS::Type::FareAttribute
 # ABSTRACT:
 
-class Opendata::GTFS::Type::FairAttribute using Moose {
+class Opendata::GTFS::Type::FareAttribute using Moose {
 
     my @columns = qw/
         1 fare_id
