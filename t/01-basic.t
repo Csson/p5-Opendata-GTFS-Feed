@@ -8,7 +8,7 @@ use Opendata::GTFS::Feed;
 # replace with the actual test
 ok 1;
 
-my $feed = Opendata::GTFS::Feed->parse(directory => 't/corpus/gtfs/');
+my $feed = Opendata::GTFS::Feed->parse(directory => '~/Downloads/northern-indiana-gtfs/');
 
 is $feed->agency_count, 1, 'Correct number of agencies';
 

@@ -40,18 +40,18 @@ class Opendata::GTFS::Feed::Parser using Moose {
     );
 
     my @attributes = (
-        Agency,        'agency.txt',
-        Stop,          'stops.txt',
-        Route,         'routes.txt',
-        Trip,          'trips.txt',
-        StopTime,      'stop_times.txt',
-        Calendar,      'calendar.txt',
-        CalendarDate,  'calendar_dates.txt',
-        FareAttribute, 'fare_attributes.txt',
-        FareRule,      'fare_rules.txt',
-        Shape,         'shapes.txt',
-        Frequency,     'frequencies.txt',
-        Transfer,      'transfers.txt',
+        Agency,        1 => 'agency.txt',
+        Stop,          1 => 'stops.txt',
+        Route,         1 => 'routes.txt',
+        Trip,          1 => 'trips.txt',
+        StopTime,      1 => 'stop_times.txt',
+        Calendar,      1 => 'calendar.txt',
+        CalendarDate,  0 => 'calendar_dates.txt',
+        FareAttribute, 0 => 'fare_attributes.txt',
+        FareRule,      0 => 'fare_rules.txt',
+        Shape,         0 => 'shapes.txt',
+        Frequency,     0 => 'frequencies.txt',
+        Transfer,      0 => 'transfers.txt',
     );
 
     fun type_to_singular($type) {
@@ -65,7 +65,7 @@ class Opendata::GTFS::Feed::Parser using Moose {
         return join '_' => @names;
     }
 
-    for (my $i = 0; $i < $#attributes; $i += 2) {
+    for (my $i = 0; $i < $#attributes; $i += 3) {
         my $type = $attributes[$i];
         my $attribute = type_to_plural($type);
         my $singular = type_to_singular($type);
@@ -103,9 +103,15 @@ class Opendata::GTFS::Feed::Parser using Moose {
     }
 
     method BUILD {
+        FILE:
         for (my $i = 0; $i < $#attributes; $i += 2) {
             my $type = $attributes[$i];
-            my $filename = $attributes[$i + 1];
+            my $is_required = $attributes[$i + 1];
+            my $filename = $attributes[$i + 2];
+
+            if(!$self->directory->child($filename)->exists) {
+                next FILE if !$is_required && ;
+            }
             $self->parse_file($type, $filename);
 
             my $singular = type_to_singular($type);
