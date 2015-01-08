@@ -9,10 +9,10 @@ use File::Temp;
 use Text::CSV;
 use Lingua::EN::Inflect;
 
-use Opendata::GTFS::Feed::Parser::Agency;
-use Opendata::GTFS::Feed::Parser::Route;
-use Opendata::GTFS::Feed::Parser::Stop;
-use Opendata::GTFS::Feed::Parser::Trip;
+use Opendata::GTFS::Type::Agency;
+use Opendata::GTFS::Type::Route;
+use Opendata::GTFS::Type::Stop;
+use Opendata::GTFS::Type::Trip;
 
 class Opendata::GTFS::Feed::Parser using Moose {
 
@@ -83,7 +83,7 @@ class Opendata::GTFS::Feed::Parser using Moose {
 
     method parse_file($type, $filename) {
         my $method = sprintf 'add_%s', lc $type->name;
-        my $class = sprintf 'Opendata::GTFS::Feed::Parser::%s', $type->name;
+        my $class = sprintf 'Opendata::GTFS::Type::%s', $type->name;
 
         my $csv = Text::CSV->new( { binary => 1} );
         open my $fh, '<:encoding(utf8)', $self->directory->child($filename) or die sprintf "Can't open %s", $self->directory->child($filename);
