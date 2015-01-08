@@ -10,11 +10,14 @@ use Text::CSV;
 use Lingua::EN::Inflect;
 
 use Opendata::GTFS::Feed::Parser::Agency;
+use Opendata::GTFS::Feed::Parser::Route;
 use Opendata::GTFS::Feed::Parser::Stop;
+use Opendata::GTFS::Feed::Parser::Trip;
 
 class Opendata::GTFS::Feed::Parser using Moose {
 
-use Path::Tiny;
+    use Path::Tiny;
+
     has file => (
         is => 'ro',
         isa => Maybe[AbsPath],
@@ -27,8 +30,10 @@ use Path::Tiny;
     );
 
     my @attributes = (
-        Agency
-        Stop
+        Agency,
+        Route,
+        Stop,
+        Trip,
     );
 
     foreach my $type (@attributes) {
@@ -68,9 +73,11 @@ use Path::Tiny;
 
     method BUILD {
         $self->parse_file(Agency, 'agency.txt');
+        $self->parse_file(Route, 'routes.txt');
         $self->parse_file(Stop, 'stops.txt');
+        $self->parse_file(Trip, 'trip.txt');
 
-        warn join "\n" => map { $_->stop_name } $self->all_stops;
+        warn join "\n" => map { $_->trip_id } $self->all_trips;
     }
 
     method parse_file($type, $filename) {

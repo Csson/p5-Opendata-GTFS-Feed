@@ -1,27 +1,25 @@
 use Opendata::GTFS::Standard::Moops;
 
 # VERSION
-# PODNAME: Opendata::GTFS::Feed::Parser::Stop
+# PODNAME: Opendata::GTFS::Feed::Parser::Trip
 # ABSTRACT:
 
 use Archive::Extract;
 use File::Temp;
 
-class Opendata::GTFS::Feed::Parser::Stop using Moose {
+class Opendata::GTFS::Feed::Parser::Trip using Moose {
 
     my @columns = qw/
-        1 stop_id
-        0 stop_code
-        1 stop_name
-        0 stop_desc
-        1 stop_lat
-        1 stop_lon
-        0 zone_id
-        0 stop_url
-        0 location_type
-        0 parent_station
-        0 stop_timezone
-        0 wheelchair_boarding
+        1 route_id
+        1 service_id
+        1 trip_id
+        0 trip_headsign
+        0 trip_short_name
+        0 direction_id
+        0 block_id
+        0 shape_id
+        0 wheelchair_accessible
+        0 bikes_allowed
     /;
 
     for (my $i = 0; $i < $#columns - 1; $i += 2) {
