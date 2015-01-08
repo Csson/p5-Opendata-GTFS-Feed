@@ -21,6 +21,7 @@ use Opendata::GTFS::Type::Route;
 use Opendata::GTFS::Type::Shape;
 use Opendata::GTFS::Type::Stop;
 use Opendata::GTFS::Type::StopTime;
+use Opendata::GTFS::Type::Transfer;
 use Opendata::GTFS::Type::Trip;
 
 class Opendata::GTFS::Feed::Parser using Moose {
@@ -50,6 +51,7 @@ class Opendata::GTFS::Feed::Parser using Moose {
         FareRule,      'fare_rules.txt',
         Shape,         'shapes.txt',
         Frequency,     'frequencies.txt',
+        Transfer,      'transfers.txt',
     );
 
     fun type_to_singular($type) {

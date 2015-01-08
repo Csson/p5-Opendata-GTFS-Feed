@@ -28,6 +28,4 @@ class Opendata::GTFS::Type::Calendar using Moose {
             isa => ($required ? Str : Maybe[Str]),
         );
     }
-    
-
 }

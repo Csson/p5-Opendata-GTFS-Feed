@@ -15,7 +15,7 @@ class Opendata::GTFS::Type::StopTime using Moose {
         0 stop_headsign
         0 pickup_type
         0 drop_off_type
-        0 shape_dist_travelled
+        0 shape_dist_traveled
     /;
 
     for (my $i = 0; $i < $#columns; $i += 2) {
@@ -27,6 +27,4 @@ class Opendata::GTFS::Type::StopTime using Moose {
             isa => ($required ? Str : Maybe[Str]),
         );
     }
-    
-
 }

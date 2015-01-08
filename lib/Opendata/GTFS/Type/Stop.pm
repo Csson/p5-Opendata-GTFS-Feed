@@ -30,6 +30,4 @@ class Opendata::GTFS::Type::Stop using Moose {
             isa => ($required ? Str : Maybe[Str]),
         );
     }
-    
-
 }

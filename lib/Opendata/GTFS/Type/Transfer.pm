@@ -1,17 +1,16 @@
 use Opendata::GTFS::Standard::Moops;
 
 # VERSION
-# PODNAME: Opendata::GTFS::Type::FareRule
+# PODNAME: Opendata::GTFS::Type::Transfer
 # ABSTRACT:
 
-class Opendata::GTFS::Type::FareRule using Moose {
+class Opendata::GTFS::Type::Transfer using Moose {
 
     my @columns = qw/
-        1 fare_id
-        0 route_id
-        0 origin_id
-        0 destination_id
-        0 contains_id
+        1 from_stop_id
+        1 to_stop_id
+        1 transfer_type
+        0 min_transfer_time
     /;
 
     for (my $i = 0; $i < $#columns; $i += 2) {

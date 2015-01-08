@@ -21,6 +21,4 @@ class Opendata::GTFS::Type::CalendarDate using Moose {
             isa => ($required ? Str : Maybe[Str]),
         );
     }
-    
-
 }

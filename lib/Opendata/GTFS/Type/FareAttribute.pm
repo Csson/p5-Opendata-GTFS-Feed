@@ -24,6 +24,4 @@ class Opendata::GTFS::Type::FareAttribute using Moose {
             isa => ($required ? Str : Maybe[Str]),
         );
     }
-    
-
 }

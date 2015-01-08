@@ -27,6 +27,4 @@ class Opendata::GTFS::Type::Route using Moose {
             isa => ($required ? Str : Maybe[Str]),
         );
     }
-    
-
 }

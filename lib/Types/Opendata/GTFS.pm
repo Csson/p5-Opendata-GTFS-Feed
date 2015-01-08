@@ -20,6 +20,7 @@ declares Agency
     class_type Route         => { class => 'Opendata::GTFS::Type::Route' };
     class_type Shape         => { class => 'Opendata::GTFS::Type::Shape' };
     class_type Stop          => { class => 'Opendata::GTFS::Type::Stop' };
+    class_type Transfer      => { class => 'Opendata::GTFS::Type::Transfer' };
     class_type StopTime      => { class => 'Opendata::GTFS::Type::StopTime' };
     class_type Trip          => { class => 'Opendata::GTFS::Type::Trip' };
 }

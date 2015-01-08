@@ -25,6 +25,4 @@ class Opendata::GTFS::Type::Agency using Moose {
             isa => ($required ? Str : Maybe[Str]),
         );
     }
-    
-
 }

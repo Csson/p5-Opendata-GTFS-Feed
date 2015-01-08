@@ -23,6 +23,4 @@ class Opendata::GTFS::Type::Shape using Moose {
             isa => ($required ? Str : Maybe[Str]),
         );
     }
-    
-
 }

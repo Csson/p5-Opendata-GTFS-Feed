@@ -23,6 +23,4 @@ class Opendata::GTFS::Type::Frequency using Moose {
             isa => ($required ? Str : Maybe[Str]),
         );
     }
-    
-
 }
