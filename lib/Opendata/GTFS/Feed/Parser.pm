@@ -26,21 +26,21 @@ class Opendata::GTFS::Feed::Parser using Moose {
     #    ['agencies', 'agency', Agency],
     #);
 
-    my @types = (Agency);
-
-    foreach my $type (@types) {
-        my $attribute = $thing->name;
-        my $singular = $thing->name;
-
-        has $attribute => (
-            is => 'rw',
-            isa => ArrayRef[ $type ],
-            default => sub { [] },
-            handles => {
-                "add_$singular" => 'push',
-                "all_$attribute" => 'elements',
-            }
-        );
+#    my @types = (Agency);
+#
+#    foreach my $type (@types) {
+#        my $attribute = $thing->name;
+#        my $singular = $thing->name;
+#
+#        has $attribute => (
+#            is => 'rw',
+#            isa => ArrayRef[ $type ],
+#            default => sub { [] },
+#            handles => {
+#                "add_$singular" => 'push',
+#                "all_$attribute" => 'elements',
+#            }
+#        );
         
     }
     method BUILDARGS($orig:, $self, @_) {
