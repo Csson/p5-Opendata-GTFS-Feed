@@ -4,9 +4,6 @@ use Opendata::GTFS::Standard::Moops;
 # PODNAME: Opendata::GTFS::Type::Route
 # ABSTRACT:
 
-use Archive::Extract;
-use File::Temp;
-
 class Opendata::GTFS::Type::Route using Moose {
 
     my @columns = qw/

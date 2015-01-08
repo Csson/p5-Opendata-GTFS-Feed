@@ -4,9 +4,6 @@ use Opendata::GTFS::Standard::Moops;
 # PODNAME: Opendata::GTFS::Type::Agency
 # ABSTRACT:
 
-use Archive::Extract;
-use File::Temp;
-
 class Opendata::GTFS::Type::Agency using Moose {
 
     my @columns = qw/

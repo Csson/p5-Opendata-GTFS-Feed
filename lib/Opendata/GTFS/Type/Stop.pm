@@ -4,9 +4,6 @@ use Opendata::GTFS::Standard::Moops;
 # PODNAME: Opendata::GTFS::Feed::Parser::Stop
 # ABSTRACT:
 
-use Archive::Extract;
-use File::Temp;
-
 class Opendata::GTFS::Type::Stop using Moose {
 
     my @columns = qw/

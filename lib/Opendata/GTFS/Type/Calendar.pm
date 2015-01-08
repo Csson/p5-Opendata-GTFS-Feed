@@ -4,9 +4,6 @@ use Opendata::GTFS::Standard::Moops;
 # PODNAME: Opendata::GTFS::Type::Calendar
 # ABSTRACT:
 
-use Archive::Extract;
-use File::Temp;
-
 class Opendata::GTFS::Type::Calendar using Moose {
 
     my @columns = qw/

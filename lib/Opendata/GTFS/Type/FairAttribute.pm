@@ -1,22 +1,18 @@
 use Opendata::GTFS::Standard::Moops;
 
 # VERSION
-# PODNAME: Opendata::GTFS::Feed::Parser::Trip
+# PODNAME: Opendata::GTFS::Type::FairAttribute
 # ABSTRACT:
 
-class Opendata::GTFS::Type::Trip using Moose {
+class Opendata::GTFS::Type::FairAttribute using Moose {
 
     my @columns = qw/
-        1 route_id
-        1 service_id
-        1 trip_id
-        0 trip_headsign
-        0 trip_short_name
-        0 direction_id
-        0 block_id
-        0 shape_id
-        0 wheelchair_accessible
-        0 bikes_allowed
+        1 fare_id
+        1 price
+        1 currency_type
+        1 payment_method
+        1 transfers
+        0 transfer_duration
     /;
 
     for (my $i = 0; $i < $#columns; $i += 2) {

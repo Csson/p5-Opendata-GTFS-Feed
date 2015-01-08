@@ -13,6 +13,8 @@ use File::BOM;
 
 use Opendata::GTFS::Type::Agency;
 use Opendata::GTFS::Type::Calendar;
+use Opendata::GTFS::Type::CalendarDate;
+use Opendata::GTFS::Type::FairAttribute;
 use Opendata::GTFS::Type::Route;
 use Opendata::GTFS::Type::Stop;
 use Opendata::GTFS::Type::StopTime;
@@ -43,10 +45,21 @@ class Opendata::GTFS::Feed::Parser using Moose {
         CalendarDate, 'calendar_dates.txt',
     );
 
+    fun type_to_singular($type) {
+        my $name = $type->name;
+        $name =~ s{(?<=[a-z])([A-Z])}{_$1}g;
+        return lc $name;
+    }
+    fun type_to_plural($type) {
+        my @names = split /_/ => type_to_singular($type);
+        $names[-1] = Lingua::EN::Inflect::PL($names[-1]);
+        return join '_' => @names;
+    }
+
     for (my $i = 0; $i < $#attributes; $i += 2) {
         my $type = $attributes[$i];
-        my $attribute = $self->type_to_plural($type);
-        my $singular = $self->type_to_singular($type);
+        my $attribute = type_to_plural($type);
+        my $singular = type_to_singular($type);
 
         has $attribute => (
             is => 'rw',
@@ -85,15 +98,15 @@ class Opendata::GTFS::Feed::Parser using Moose {
             my $type = $attributes[$i];
             my $filename = $attributes[$i + 1];
             $self->parse_file($type, $filename);
-            my $singular = lc $type;
-            my $plural = Lingua::EN::Inflect::PL(lc $type->name);
+
+            my $singular = type_to_singular($type);
             my $method = "${singular}_count";
         }
         
     }
 
     method parse_file($type, $filename) {
-        my $method = sprintf 'add_%s', lc $type->name;
+        my $method = sprintf 'add_%s', type_to_singular($type);
         my $class = sprintf 'Opendata::GTFS::Type::%s', $type->name;
 
         my $csv = Text::CSV->new( { binary => 1 } );
@@ -119,15 +132,5 @@ class Opendata::GTFS::Feed::Parser using Moose {
         }
 
         close $fh or die sprintf "Can't close %s", $self->directory->child($filename);
-    }
-    method type_to_singular($type) {
-        my $name = $type->name;
-        $name =~ m{(?<=[a-z])([A-Z])}{_$1}g;
-        return lc $name;
-    }
-    method type_to_plural($type) {
-        my @names = split /_/ => $name;
-        $names[-1] = Lingua::EN::Inflect::PL($names[-1]);
-        return join '_' => @names;
     }
 }
