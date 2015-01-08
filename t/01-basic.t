@@ -18,6 +18,8 @@ is $feed->calendar_date_count, 1, 'Correct number of calendar dates';
 
 is $feed->fare_attribute_count, 2, 'Correct number of fare attributes';
 
+is $feed->fare_rule_count, 4, 'Correct number of fare rules';
+
 is $feed->route_count, 5, 'Correct number of routes';
 
 is $feed->stop_count, 9, 'Correct number of stops';

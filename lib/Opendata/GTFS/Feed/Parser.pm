@@ -15,6 +15,7 @@ use Opendata::GTFS::Type::Agency;
 use Opendata::GTFS::Type::Calendar;
 use Opendata::GTFS::Type::CalendarDate;
 use Opendata::GTFS::Type::FareAttribute;
+use Opendata::GTFS::Type::FareRule;
 use Opendata::GTFS::Type::Route;
 use Opendata::GTFS::Type::Stop;
 use Opendata::GTFS::Type::StopTime;
@@ -44,6 +45,7 @@ class Opendata::GTFS::Feed::Parser using Moose {
         Calendar,      'calendar.txt',
         CalendarDate,  'calendar_dates.txt',
         FareAttribute, 'fare_attributes.txt',
+        FareRule,      'fare_rule.txt',
     );
 
     fun type_to_singular($type) {
