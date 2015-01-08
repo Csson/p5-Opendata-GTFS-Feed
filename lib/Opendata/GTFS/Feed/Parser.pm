@@ -34,18 +34,19 @@ class Opendata::GTFS::Feed::Parser using Moose {
     );
 
     my @attributes = (
-        Agency,   'agency.txt',
-        Calendar, 'calendar.txt',
-        Route,    'routes.txt',
-        Stop,     'stops.txt',
-        StopTime, 'stop_times.txt',
-        Trip,     'trips.txt',
+        Agency,       'agency.txt',
+        Stop,         'stops.txt',
+        Route,        'routes.txt',
+        Trip,         'trips.txt',
+        StopTime,     'stop_times.txt',
+        Calendar,     'calendar.txt',
+        CalendarDate, 'calendar_dates.txt',
     );
 
     for (my $i = 0; $i < $#attributes; $i += 2) {
         my $type = $attributes[$i];
-        my $attribute = Lingua::EN::Inflect::PL(lc $type->name);
-        my $singular = lc $type->name;
+        my $attribute = $self->type_to_plural($type);
+        my $singular = $self->type_to_singular($type);
 
         has $attribute => (
             is => 'rw',
@@ -118,5 +119,15 @@ class Opendata::GTFS::Feed::Parser using Moose {
         }
 
         close $fh or die sprintf "Can't close %s", $self->directory->child($filename);
+    }
+    method type_to_singular($type) {
+        my $name = $type->name;
+        $name =~ m{(?<=[a-z])([A-Z])}{_$1}g;
+        return lc $name;
+    }
+    method type_to_plural($type) {
+        my @names = split /_/ => $name;
+        $names[-1] = Lingua::EN::Inflect::PL($names[-1]);
+        return join '_' => @names;
     }
 }
