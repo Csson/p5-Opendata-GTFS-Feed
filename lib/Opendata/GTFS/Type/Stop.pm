@@ -1,7 +1,7 @@
 use Opendata::GTFS::Standard::Moops;
 
 # VERSION
-# PODNAME: Opendata::GTFS::Feed::Parser::Stop
+# PODNAME: Opendata::GTFS::Type::Stop
 # ABSTRACT:
 
 class Opendata::GTFS::Type::Stop using Moose {

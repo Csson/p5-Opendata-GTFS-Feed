@@ -1,7 +1,7 @@
 use Opendata::GTFS::Standard::Moops;
 
 # VERSION
-# PODNAME: Opendata::GTFS::Feed::Parser::Trip
+# PODNAME: Opendata::GTFS::Type::Trip
 # ABSTRACT:
 
 class Opendata::GTFS::Type::Trip using Moose {
