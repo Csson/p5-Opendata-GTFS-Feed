@@ -11,6 +11,7 @@ extends  Types::Standard,
 
 declares Agency
 {
+	class_type Calendar => { class => 'Opendata::GTFS::Type::Calendar' };
     class_type Agency   => { class => 'Opendata::GTFS::Type::Agency' };
     class_type Route    => { class => 'Opendata::GTFS::Type::Route' };
     class_type Stop     => { class => 'Opendata::GTFS::Type::Stop' };

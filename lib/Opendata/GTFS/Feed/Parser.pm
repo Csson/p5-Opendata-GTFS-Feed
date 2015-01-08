@@ -9,7 +9,10 @@ use File::Temp;
 use Text::CSV;
 use Lingua::EN::Inflect;
 
+use File::BOM;
+
 use Opendata::GTFS::Type::Agency;
+use Opendata::GTFS::Type::Calendar;
 use Opendata::GTFS::Type::Route;
 use Opendata::GTFS::Type::Stop;
 use Opendata::GTFS::Type::StopTime;
@@ -32,6 +35,7 @@ class Opendata::GTFS::Feed::Parser using Moose {
 
     my @attributes = (
         Agency,   'agency.txt',
+        Calendar, 'calendar.txt',
         Route,    'routes.txt',
         Stop,     'stops.txt',
         StopTime, 'stop_times.txt',
@@ -51,6 +55,7 @@ class Opendata::GTFS::Feed::Parser using Moose {
             handles => {
                 "add_$singular" => 'push',
                 "all_$attribute" => 'elements',
+                "${singular}_count" => 'count',
             }
         );
     }
@@ -79,24 +84,37 @@ class Opendata::GTFS::Feed::Parser using Moose {
             my $type = $attributes[$i];
             my $filename = $attributes[$i + 1];
             $self->parse_file($type, $filename);
+            my $singular = lc $type;
+            my $plural = Lingua::EN::Inflect::PL(lc $type->name);
+            my $method = "${singular}_count";
         }
-        warn join "\n" => map { $_->arrival_time } $self->all_stop_times;
+        
     }
 
     method parse_file($type, $filename) {
         my $method = sprintf 'add_%s', lc $type->name;
         my $class = sprintf 'Opendata::GTFS::Type::%s', $type->name;
 
-        my $csv = Text::CSV->new( { binary => 1} );
-        open my $fh, '<:encoding(utf8)', $self->directory->child($filename) or die sprintf "Can't open %s", $self->directory->child($filename);
-        $csv->column_names($csv->getline($fh));
+        my $csv = Text::CSV->new( { binary => 1 } );
+        my $fh;
+        File::BOM::open_bom($fh, $self->directory->child($filename), ':utf8');
+
+        my $column_names = $csv->getline($fh);
+        if(!defined $column_names) {
+            die sprintf "Can't read the first line of the file. Check %s for errors.", $self->directory->child($filename);
+        }
+        my @column_names = @{ $column_names };
 
         LINE:
         while(1) {
-            my $line = $csv->getline_hr($fh);
-            last LINE if $csv->eof;
+            my $line = $csv->getline($fh);
+            last LINE if $csv->eof && !defined $line;
+            next LINE if !defined $line;
 
-            $self->$method($class->new(%{ $line} ));
+            my @args = zip @column_names, @{ $line };
+            $self->$method($class->new(@args));
+
+            last LINE if $csv->eof;
         }
 
         close $fh or die sprintf "Can't close %s", $self->directory->child($filename);
