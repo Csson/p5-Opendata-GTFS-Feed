@@ -8,4 +8,8 @@ use Opendata::GTFS::Feed;
 # replace with the actual test
 ok 1;
 
+my $feed = Opendata::GTFS::Feed->parse(file => '~/Downloads/sweden-gtfs.zip');
+
+
+
 done_testing;
