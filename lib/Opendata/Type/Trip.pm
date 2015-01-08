@@ -7,7 +7,7 @@ use Opendata::GTFS::Standard::Moops;
 use Archive::Extract;
 use File::Temp;
 
-class Opendata::GTFS::Feed::Parser::Trip using Moose {
+class Opendata::GTFS::Type::Trip using Moose {
 
     my @columns = qw/
         1 route_id
@@ -22,7 +22,7 @@ class Opendata::GTFS::Feed::Parser::Trip using Moose {
         0 bikes_allowed
     /;
 
-    for (my $i = 0; $i < $#columns - 1; $i += 2) {
+    for (my $i = 0; $i < $#columns; $i += 2) {
         my $required = $columns[$i];
         my $column = $columns[$i + 1];
 

@@ -1,4 +1,4 @@
-use Opendata::GTFS::Standard::Moops;
+use Opendata::GTFS::Standard::Moops;    
 
 # VERSION
 # PODNAME: Opendata::GTFS::Feed::Parser
@@ -30,13 +30,14 @@ class Opendata::GTFS::Feed::Parser using Moose {
     );
 
     my @attributes = (
-        Agency,
-        Route,
-        Stop,
-        Trip,
+        Agency, 'agency.txt',
+        Route,  'routes.txt',
+        Stop,   'stops.txt',
+        Trip,   'trips.txt',
     );
 
-    foreach my $type (@attributes) {
+    for (my $i = 0; $i < $#attributes; $i += 2) {
+        my $type = $attributes[$i];
         my $attribute = Lingua::EN::Inflect::PL(lc $type->name);
         my $singular = lc $type->name;
 
@@ -72,11 +73,11 @@ class Opendata::GTFS::Feed::Parser using Moose {
     }
 
     method BUILD {
-        $self->parse_file(Agency, 'agency.txt');
-        $self->parse_file(Route, 'routes.txt');
-        $self->parse_file(Stop, 'stops.txt');
-        $self->parse_file(Trip, 'trip.txt');
-
+        for (my $i = 0; $i < $#attributes; $i += 2) {
+            my $type = $attributes[$i];
+            my $filename = $attributes[$i + 1];
+            $self->parse_file($type, $filename);
+        }
         warn join "\n" => map { $_->trip_id } $self->all_trips;
     }
 

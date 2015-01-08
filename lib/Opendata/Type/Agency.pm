@@ -1,13 +1,13 @@
 use Opendata::GTFS::Standard::Moops;
 
 # VERSION
-# PODNAME: Opendata::GTFS::Feed::Parser::Agency
+# PODNAME: Opendata::GTFS::Type::Agency
 # ABSTRACT:
 
 use Archive::Extract;
 use File::Temp;
 
-class Opendata::GTFS::Feed::Parser::Agency using Moose {
+class Opendata::GTFS::Type::Agency using Moose {
 
     my @columns = qw/
         0 agency_id
@@ -19,7 +19,7 @@ class Opendata::GTFS::Feed::Parser::Agency using Moose {
         0 agency_fare_url
     /;
 
-    for (my $i = 0; $i < $#columns - 1; $i += 2) {
+    for (my $i = 0; $i < $#columns; $i += 2) {
         my $required = $columns[$i];
         my $column = $columns[$i + 1];
 

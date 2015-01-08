@@ -6,7 +6,7 @@ package Opendata::GTFS::Standard::Moops {
 
     use base 'Moops';
     use List::AllUtils();
-    use Opendata::GTFS::Types();
+    use Types::Opendata::GTFS();
     
 
     sub import {
@@ -15,7 +15,7 @@ package Opendata::GTFS::Standard::Moops {
 
         push @{ $opts{'imports'} ||= [] } => (
             'List::AllUtils'    => [qw/any none sum uniq/],
-            'Opendata::GTFS::Types' => [{ replace => 1 }, '-types'],
+            'Types::Opendata::GTFS' => [{ replace => 1 }, '-types'],
         );
 
         $class->SUPER::import(%opts);

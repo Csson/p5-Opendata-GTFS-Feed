@@ -1,13 +1,13 @@
 use Opendata::GTFS::Standard::Moops;
 
 # VERSION
-# PODNAME: Opendata::GTFS::Feed::Parser::Route
+# PODNAME: Opendata::GTFS::Type::Route
 # ABSTRACT:
 
 use Archive::Extract;
 use File::Temp;
 
-class Opendata::GTFS::Feed::Parser::Route using Moose {
+class Opendata::GTFS::Type::Route using Moose {
 
     my @columns = qw/
         1 route_id
@@ -21,7 +21,7 @@ class Opendata::GTFS::Feed::Parser::Route using Moose {
         0 route_text_color
     /;
 
-    for (my $i = 0; $i < $#columns - 1; $i += 2) {
+    for (my $i = 0; $i < $#columns; $i += 2) {
         my $required = $columns[$i];
         my $column = $columns[$i + 1];
 

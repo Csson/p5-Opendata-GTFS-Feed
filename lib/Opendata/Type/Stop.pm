@@ -7,7 +7,7 @@ use Opendata::GTFS::Standard::Moops;
 use Archive::Extract;
 use File::Temp;
 
-class Opendata::GTFS::Feed::Parser::Stop using Moose {
+class Opendata::GTFS::Type::Stop using Moose {
 
     my @columns = qw/
         1 stop_id
@@ -24,7 +24,7 @@ class Opendata::GTFS::Feed::Parser::Stop using Moose {
         0 wheelchair_boarding
     /;
 
-    for (my $i = 0; $i < $#columns - 1; $i += 2) {
+    for (my $i = 0; $i < $#columns; $i += 2) {
         my $required = $columns[$i];
         my $column = $columns[$i + 1];
 
