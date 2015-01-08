@@ -45,7 +45,7 @@ class Opendata::GTFS::Feed::Parser using Moose {
         Calendar,      'calendar.txt',
         CalendarDate,  'calendar_dates.txt',
         FareAttribute, 'fare_attributes.txt',
-        FareRule,      'fare_rule.txt',
+        FareRule,      'fare_rules.txt',
     );
 
     fun type_to_singular($type) {
