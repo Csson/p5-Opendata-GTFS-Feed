@@ -1,24 +1,24 @@
 use Opendata::GTFS::Standard::Moops;
 
 # VERSION
-# PODNAME: Opendata::GTFS::Type::Route
+# PODNAME: Opendata::GTFS::Type::StopTime
 # ABSTRACT:
 
 use Archive::Extract;
 use File::Temp;
 
-class Opendata::GTFS::Type::Route using Moose {
+class Opendata::GTFS::Type::StopTime using Moose {
 
     my @columns = qw/
-        1 route_id
-        0 agency_id
-        0 route_short_name
-        0 route_long_name
-        0 route_desc
-        1 route_type
-        0 route_url
-        0 route_color
-        0 route_text_color
+        1 trip_id
+        1 arrival_time
+        1 departure_time
+        1 stop_id
+        1 stop_sequence
+        0 stop_headsign
+        0 pickup_type
+        0 drop_off_type
+        0 shape_dist_travelled
     /;
 
     for (my $i = 0; $i < $#columns; $i += 2) {

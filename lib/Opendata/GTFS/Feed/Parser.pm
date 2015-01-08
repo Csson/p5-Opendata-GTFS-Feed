@@ -12,6 +12,7 @@ use Lingua::EN::Inflect;
 use Opendata::GTFS::Type::Agency;
 use Opendata::GTFS::Type::Route;
 use Opendata::GTFS::Type::Stop;
+use Opendata::GTFS::Type::StopTime;
 use Opendata::GTFS::Type::Trip;
 
 class Opendata::GTFS::Feed::Parser using Moose {
@@ -30,10 +31,11 @@ class Opendata::GTFS::Feed::Parser using Moose {
     );
 
     my @attributes = (
-        Agency, 'agency.txt',
-        Route,  'routes.txt',
-        Stop,   'stops.txt',
-        Trip,   'trips.txt',
+        Agency,   'agency.txt',
+        Route,    'routes.txt',
+        Stop,     'stops.txt',
+        StopTime, 'stop_times.txt',
+        Trip,     'trips.txt',
     );
 
     for (my $i = 0; $i < $#attributes; $i += 2) {
@@ -78,7 +80,7 @@ class Opendata::GTFS::Feed::Parser using Moose {
             my $filename = $attributes[$i + 1];
             $self->parse_file($type, $filename);
         }
-        warn join "\n" => map { $_->trip_id } $self->all_trips;
+        warn join "\n" => map { $_->arrival_time } $self->all_stop_times;
     }
 
     method parse_file($type, $filename) {
