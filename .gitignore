@@ -1,0 +1,7 @@
+/Opendata-GTFS-Feed-*
+/.build
+/_build*
+/Build
+MYMETA.*
+!META.json
+/.prove
