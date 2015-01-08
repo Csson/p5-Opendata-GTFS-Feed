@@ -9,8 +9,12 @@ use File::Temp;
 use Text::CSV;
 use Lingua::EN::Inflect;
 
+use Opendata::GTFS::Feed::Parser::Agency;
+use Opendata::GTFS::Feed::Parser::Stop;
+
 class Opendata::GTFS::Feed::Parser using Moose {
 
+use Path::Tiny;
     has file => (
         is => 'ro',
         isa => Maybe[AbsPath],
@@ -21,50 +25,70 @@ class Opendata::GTFS::Feed::Parser using Moose {
         isa => AbsPath,
         coerce => 1,
     );
-    
-    #my %things = (
-    #    ['agencies', 'agency', Agency],
-    #);
 
-#    my @types = (Agency);
-#
-#    foreach my $type (@types) {
-#        my $attribute = $thing->name;
-#        my $singular = $thing->name;
-#
-#        has $attribute => (
-#            is => 'rw',
-#            isa => ArrayRef[ $type ],
-#            default => sub { [] },
-#            handles => {
-#                "add_$singular" => 'push',
-#                "all_$attribute" => 'elements',
-#            }
-#        );
-        
+    my @attributes = (
+        Agency
+        Stop
+    );
+
+    foreach my $type (@attributes) {
+        my $attribute = Lingua::EN::Inflect::PL(lc $type->name);
+        my $singular = lc $type->name;
+
+        has $attribute => (
+            is => 'rw',
+            isa => ArrayRef[ $type ],
+            traits => ['Array'],
+            default => sub { [] },
+            handles => {
+                "add_$singular" => 'push',
+                "all_$attribute" => 'elements',
+            }
+        );
     }
-    method BUILDARGS($orig:, $self, @_) {
-        my %args = @_;
+
+    around BUILDARGS($orig: $self, @args) {
+        my %args = @args;
         if(!exists $args{'directory'}) {
             $args{'directory'} = File::Temp->newdir;
         }
+        $args{'directory'} = path($args{'directory'})->absolute;
         if(exists $args{'file'}) {
-            my $x = Archive::Extract->new(archive => $self->file->stringify);
-            $x->extract(to => $args{'directory'}) or die $x->error;
+            if(path($args{'file'})->exists) {
+                $args{'file'} = path($args{'file'})->absolute;
+                my $x = Archive::Extract->new(archive => $args{'file'}->stringify);
+                $x->extract(to => $args{'directory'}->stringify) or die $x->error;
+            }
+            else {
+                die sprintf 'Supplied filepath (%s) does not exist.', $args{'file'};
+            }
         }
         $self->$orig(%args);
     }
 
     method BUILD {
-        $self->parse_agency;
+        $self->parse_file(Agency, 'agency.txt');
+        $self->parse_file(Stop, 'stops.txt');
+
+        warn join "\n" => map { $_->stop_name } $self->all_stops;
     }
 
-    method csv {
-        return Text::CSV->new( { binary => 1} );
-    }
+    method parse_file($type, $filename) {
+        my $method = sprintf 'add_%s', lc $type->name;
+        my $class = sprintf 'Opendata::GTFS::Feed::Parser::%s', $type->name;
 
-    method parse_agency {
-        
-    }
+        my $csv = Text::CSV->new( { binary => 1} );
+        open my $fh, '<:encoding(utf8)', $self->directory->child($filename) or die sprintf "Can't open %s", $self->directory->child($filename);
+        $csv->column_names($csv->getline($fh));
 
+        LINE:
+        while(1) {
+            my $line = $csv->getline_hr($fh);
+            last LINE if $csv->eof;
+
+            $self->$method($class->new(%{ $line} ));
+        }
+
+        close $fh or die sprintf "Can't close %s", $self->directory->child($filename);
+    }
 }
