@@ -30,6 +30,8 @@ is $feed->stop_count, 9, 'Correct number of stops';
 
 is $feed->stop_time_count, 28, 'Correct number of stop times';
 
+is $feed->transfer_count, 1, 'Correct number of transfers';
+
 is $feed->trip_count, 11, 'Correct number of trips';
 
 done_testing;
