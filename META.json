@@ -1,5 +1,5 @@
 {
-   "abstract" : "Short intro",
+   "abstract" : "Parse General Transit Feeds (GTFS)",
    "author" : [
       "Erik Carlsson <info@code301.com>"
    ],

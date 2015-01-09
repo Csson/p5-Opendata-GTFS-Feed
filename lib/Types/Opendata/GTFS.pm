@@ -7,7 +7,8 @@ use Moops;
 library  Types::Opendata::GTFS
 
 extends  Types::Standard,
-         Types::Path::Tiny
+         Types::Path::Tiny,
+         Types::URI
 
 declares Agency
 {

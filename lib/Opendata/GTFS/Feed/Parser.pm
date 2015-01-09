@@ -38,6 +38,12 @@ class Opendata::GTFS::Feed::Parser using Moose {
         isa => AbsPath,
         coerce => 1,
     );
+    has url => (
+        is => 'ro',
+        isa => Uri,
+        coerce => 1,
+    );
+    
 
     my @attributes = (
         Agency,        1 => 'agency.txt',
@@ -101,17 +107,25 @@ class Opendata::GTFS::Feed::Parser using Moose {
         }
         elsif(exists $args{'url'}) {
             eval "use HTTP::Tiny";
-            die "Passing 'url' to Opendata::GTFS::Feed->new requires HTTP::Tiny";
+            die "Passing 'url' to Opendata::GTFS::Feed->new requires HTTP::Tiny" if $@;
 
-            my $reponse = HTTP::Tiny->new($args{'url'});
+            my $response = HTTP::Tiny->new->get($args{'url'});
 
-            die sprintf "Can't download %s: %s", $args{'url'}, join ' - ' => $response->{'status'}, $response->{'reason'} !if $response->{'success'};
+            die sprintf "Can't download %s: %s", $args{'url'}, join (' - ' => $response->{'status'}, $response->{'reason'}) if !$response->{'success'};
 
             my $filename = $args{'url'};
             $filename =~ s{/?\?.*}{};
             $filename =~ s{.*/([^/]*)$}{$1};
-            $filename .= '.zip' if index $filename, '.' == -1;
-            $args{'directory'}->child($filename)->spew_utf8($response->{'content'});
+            $filename .= '.zip' if index ($filename, '.') == -1;
+            warn '>>>>>>' . $filename;
+            warn '> dir >' . $args{'directory'}->stringify;
+            $args{'directory'}->mkpath;
+            $args{'directory'}->child($filename)->touch;
+            warn '>>>>>>' . $args{'directory'}->child($filename)->stringify;
+            $args{'directory'}->child($filename)->touch->spew($response->{'content'});
+
+            my $x = Archive::Extract->new(archive => $args{'directory'}->child($filename)->stringify);
+            $x->extract(to => $args{'directory'}->stringify) or die $x->error;
         }
         $self->$orig(%args);
     }
@@ -147,6 +161,15 @@ class Opendata::GTFS::Feed::Parser using Moose {
             die sprintf "Can't read the first line of the file. Check %s for errors.", $self->directory->child($filename);
         }
         my @column_names = @{ $column_names };
+
+        # Google's example feed (https://developers.google.com/transit/gtfs/examples/gtfs-feed / https://developers.google.com/transit/gtfs/examples/sample-feed.zip)
+        # has a (reported) bug. This fixes that.
+        if($type->name eq 'StopTime' && any { $_ eq 'drop_off_time' } @column_names) {
+            warn q{Error in feed. stop_times.txt contains header 'drop_off_time'. Replaced with 'drop_off_type'.};
+            my $index = first_index { $_ eq 'drop_off_time'} @column_names;
+
+            $column_names[ $index ] = 'drop_off_type' if $index >= 0;
+        }
 
         LINE:
         while(1) {

@@ -1,6 +1,6 @@
 # NAME
 
-Opendata::GTFS::Feed - Short intro
+Opendata::GTFS::Feed - Parse General Transit Feeds (GTFS)
 
 # VERSION
 
@@ -9,10 +9,11 @@ Version 0.0001, released 2015-01-09.
 # SYNOPSIS
 
     use Opendata::GTFS::Feed;
+    my $feed = Opendata::GTFS::Feed->parse(file => 'a-gtfs-feed.zip', directory => 'feed');
 
 # DESCRIPTION
 
-Opendata::GTFS::Feed is ...
+Opendata::GTFS::Feed is an easy way to parse a 
 
 # SEE ALSO
 

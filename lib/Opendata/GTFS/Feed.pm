@@ -27,7 +27,7 @@ __END__
 
 =head1 DESCRIPTION
 
-Opendata::GTFS::Feed is ...
+Opendata::GTFS::Feed is an easy way to parse a 
 
 =head1 SEE ALSO
 

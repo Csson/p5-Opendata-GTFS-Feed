@@ -15,7 +15,7 @@ package Opendata::GTFS::Standard::Moops {
         my %opts = @_;
 
         push @{ $opts{'imports'} ||= [] } => (
-            'List::AllUtils'    => [qw/any none sum uniq zip/],
+            'List::AllUtils'    => [qw/any none sum uniq zip first_index/],
             'Types::Opendata::GTFS' => [{ replace => 1 }, '-types'],
             'MooseX::StrictConstructor' => [],
         );
