@@ -99,18 +99,32 @@ class Opendata::GTFS::Feed::Parser using Moose {
                 die sprintf 'Supplied filepath (%s) does not exist.', $args{'file'};
             }
         }
+        elsif(exists $args{'url'}) {
+            eval "use HTTP::Tiny";
+            die "Passing 'url' to Opendata::GTFS::Feed->new requires HTTP::Tiny";
+
+            my $reponse = HTTP::Tiny->new($args{'url'});
+
+            die sprintf "Can't download %s: %s", $args{'url'}, join ' - ' => $response->{'status'}, $response->{'reason'} !if $response->{'success'};
+
+            my $filename = $args{'url'};
+            $filename =~ s{/?\?.*}{};
+            $filename =~ s{.*/([^/]*)$}{$1};
+            $filename .= '.zip' if index $filename, '.' == -1;
+            $args{'directory'}->child($filename)->spew_utf8($response->{'content'});
+        }
         $self->$orig(%args);
     }
 
     method BUILD {
         FILE:
-        for (my $i = 0; $i < $#attributes; $i += 2) {
+        for (my $i = 0; $i < $#attributes; $i += 3) {
             my $type = $attributes[$i];
             my $is_required = $attributes[$i + 1];
             my $filename = $attributes[$i + 2];
 
             if(!$self->directory->child($filename)->exists) {
-                next FILE if !$is_required && ;
+                next FILE if !$is_required;
             }
             $self->parse_file($type, $filename);
 
@@ -139,6 +153,7 @@ class Opendata::GTFS::Feed::Parser using Moose {
             my $line = $csv->getline($fh);
             last LINE if $csv->eof && !defined $line;
             next LINE if !defined $line;
+            next LINE if scalar @{ $line } == 1 && (!defined $line->[0] || $line->[0] eq ''); # skip empty lines
 
             my @args = zip @column_names, @{ $line };
             $self->$method($class->new(@args));
