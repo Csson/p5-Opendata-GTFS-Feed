@@ -8,6 +8,7 @@ package Opendata::GTFS::Standard::Moops {
     use List::AllUtils();
     use MooseX::StrictConstructor();
     use Types::Opendata::GTFS();
+    use Safe::Isa;
     
 
     sub import {
@@ -18,6 +19,7 @@ package Opendata::GTFS::Standard::Moops {
             'List::AllUtils'    => [qw/any none sum uniq zip first_index/],
             'Types::Opendata::GTFS' => [{ replace => 1 }, '-types'],
             'MooseX::StrictConstructor' => [],
+            'Safe::Isa' => ['$_does'],
         );
 
         $class->SUPER::import(%opts);

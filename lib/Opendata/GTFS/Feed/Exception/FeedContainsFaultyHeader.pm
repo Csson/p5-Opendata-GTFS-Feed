@@ -3,9 +3,7 @@ use Map::Metro::Standard::Moops;
 # VERSION
 # PODNAME: Opendata::GTFS::Feed::Exception::FeedContainsFaultyHeader
 
-class Opendata::GTFS::Feed::Exception::FeedContainsFaultyHeader
- with Opendata::GTFS::Feed::Exception
-using Moose {
+class Opendata::GTFS::Feed::Exception::FeedContainsFaultyHeader with Opendata::GTFS::Feed::Exception using Moose {
 
     use Opendata::GTFS::Feed::Exception -all;
 
@@ -14,7 +12,7 @@ using Moose {
         isa => Any,
         traits => [Payload],
     );
-    has filename => (
+    has header => (
         is => 'ro',
         isa => Any,
         traits => [Payload],

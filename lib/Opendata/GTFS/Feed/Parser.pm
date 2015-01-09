@@ -24,6 +24,8 @@ use Opendata::GTFS::Type::StopTime;
 use Opendata::GTFS::Type::Transfer;
 use Opendata::GTFS::Type::Trip;
 
+use Opendata::GTFS::Feed::Exception::FeedContainsFaultyHeader;
+
 class Opendata::GTFS::Feed::Parser using Moose {
 
     use Path::Tiny;
@@ -165,7 +167,6 @@ class Opendata::GTFS::Feed::Parser using Moose {
         # Google's example feed (https://developers.google.com/transit/gtfs/examples/gtfs-feed / https://developers.google.com/transit/gtfs/examples/sample-feed.zip)
         # has a (reported) bug. This fixes that.
         if($type->name eq 'StopTime' && any { $_ eq 'drop_off_time' } @column_names) {
-            warn q{Error in feed. stop_times.txt contains header 'drop_off_time'. Replaced with 'drop_off_type'.};
             my $index = first_index { $_ eq 'drop_off_time'} @column_names;
 
             $column_names[ $index ] = 'drop_off_type' if $index >= 0;
