@@ -119,12 +119,8 @@ class Opendata::GTFS::Feed::Parser using Moose {
             $filename =~ s{/?\?.*}{};
             $filename =~ s{.*/([^/]*)$}{$1};
             $filename .= '.zip' if index ($filename, '.') == -1;
-            warn '>>>>>>' . $filename;
-            warn '> dir >' . $args{'directory'}->stringify;
-            $args{'directory'}->mkpath;
-            $args{'directory'}->child($filename)->touch;
-            warn '>>>>>>' . $args{'directory'}->child($filename)->stringify;
-            $args{'directory'}->child($filename)->touch->spew($response->{'content'});
+
+            $args{'directory'}->child($filename)->spew($response->{'content'});
 
             my $x = Archive::Extract->new(archive => $args{'directory'}->child($filename)->stringify);
             $x->extract(to => $args{'directory'}->stringify) or die $x->error;

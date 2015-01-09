@@ -9,9 +9,9 @@ plan skip_all => "Skipped http test since GTFS_SKIP_HTTP_TEST is in effect" if $
 
 use Opendata::GTFS::Feed;
 
-ok 1;
-
 my $feed = Opendata::GTFS::Feed->parse(url => 'https://developers.google.com/transit/gtfs/examples/sample-feed.zip', directory => '~/test-gtfs/');
+
+ok 1, 'Fetched zipped feed from google';
 
 is $feed->agency_count, 1, 'Correct number of agencies';
 
