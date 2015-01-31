@@ -30,3 +30,15 @@ class Opendata::GTFS::Type::StopTime using Moose {
 }
 
 1;
+
+=pod
+
+=encoding utf-8
+
+:splint classname Opendata::GTFS::Type::StopTime
+
+=head1 ATTRIBUTES
+
+:splint attributes
+
+=cut

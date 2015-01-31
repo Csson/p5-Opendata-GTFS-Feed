@@ -31,3 +31,15 @@ class Opendata::GTFS::Type::Trip using Moose {
 }
 
 1;
+
+=pod
+
+=encoding utf-8
+
+:splint classname Opendata::GTFS::Type::Trip
+
+=head1 ATTRIBUTES
+
+:splint attributes
+
+=cut

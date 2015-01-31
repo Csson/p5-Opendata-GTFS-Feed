@@ -27,3 +27,15 @@ class Opendata::GTFS::Type::FareAttribute using Moose {
 }
 
 1;
+
+=pod
+
+=encoding utf-8
+
+:splint classname Opendata::GTFS::Type::FareAttribute
+
+=head1 ATTRIBUTES
+
+:splint attributes
+
+=cut

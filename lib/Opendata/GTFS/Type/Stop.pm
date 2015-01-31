@@ -33,3 +33,15 @@ class Opendata::GTFS::Type::Stop using Moose {
 }
 
 1;
+
+=pod
+
+=encoding utf-8
+
+:splint classname Opendata::GTFS::Type::Stop
+
+=head1 ATTRIBUTES
+
+:splint attributes
+
+=cut

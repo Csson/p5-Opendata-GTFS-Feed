@@ -25,3 +25,15 @@ class Opendata::GTFS::Type::Transfer using Moose {
 }
 
 1;
+
+=pod
+
+=encoding utf-8
+
+:splint classname Opendata::GTFS::Type::Transfer
+
+=head1 ATTRIBUTES
+
+:splint attributes
+
+=cut

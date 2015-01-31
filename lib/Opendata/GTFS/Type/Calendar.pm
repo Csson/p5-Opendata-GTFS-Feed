@@ -31,3 +31,15 @@ class Opendata::GTFS::Type::Calendar using Moose {
 }
 
 1;
+
+=pod
+
+=encoding utf-8
+
+:splint classname Opendata::GTFS::Type::Calendar
+
+=head1 ATTRIBUTES
+
+:splint attributes
+
+=cut

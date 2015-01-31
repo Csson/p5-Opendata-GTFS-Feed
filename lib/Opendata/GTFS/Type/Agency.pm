@@ -28,3 +28,15 @@ class Opendata::GTFS::Type::Agency using Moose {
 }
 
 1;
+
+=pod
+
+=encoding utf-8
+
+:splint classname Opendata::GTFS::Type::Agency
+
+=head1 ATTRIBUTES
+
+:splint attributes
+
+=cut

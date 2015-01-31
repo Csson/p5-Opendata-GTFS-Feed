@@ -30,3 +30,15 @@ class Opendata::GTFS::Type::Route using Moose {
 }
 
 1;
+
+=pod
+
+=encoding utf-8
+
+:splint classname Opendata::GTFS::Type::Route
+
+=head1 ATTRIBUTES
+
+:splint attributes
+
+=cut

@@ -26,3 +26,15 @@ class Opendata::GTFS::Type::Frequency using Moose {
 }
 
 1;
+
+=pod
+
+=encoding utf-8
+
+:splint classname Opendata::GTFS::Type::Frequency
+
+=head1 ATTRIBUTES
+
+:splint attributes
+
+=cut
