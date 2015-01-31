@@ -1,8 +1,8 @@
-use Opendata::GTFS::Standard::Moops;
+use Opendata::GTFS::Standard;
 
 # VERSION
-# PODNAME: Opendata::GTFS::Type::Shape
-# ABSTRACT:
+# PODCLASSNAME
+# ABSTRACT: Shape:
 
 class Opendata::GTFS::Type::Shape using Moose {
 

@@ -1,8 +1,8 @@
-use Opendata::GTFS::Standard::Moops;
+use Opendata::GTFS::Standard;
 
 # VERSION
-# PODNAME: Opendata::GTFS::Type::CalendarDate
-# ABSTRACT:
+# PODCLASSNAME
+# ABSTRACT: Calendar date
 
 class Opendata::GTFS::Type::CalendarDate using Moose {
 

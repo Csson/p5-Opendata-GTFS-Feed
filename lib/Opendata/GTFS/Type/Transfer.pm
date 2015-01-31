@@ -1,8 +1,8 @@
-use Opendata::GTFS::Standard::Moops;
+use Opendata::GTFS::Standard;
 
 # VERSION
-# PODNAME: Opendata::GTFS::Type::Transfer
-# ABSTRACT:
+# PODCLASSNAME
+# ABSTRACT: Transfer
 
 class Opendata::GTFS::Type::Transfer using Moose {
 

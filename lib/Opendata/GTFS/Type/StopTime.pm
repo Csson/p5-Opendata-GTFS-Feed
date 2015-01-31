@@ -1,8 +1,8 @@
-use Opendata::GTFS::Standard::Moops;
+use Opendata::GTFS::Standard;
 
 # VERSION
-# PODNAME: Opendata::GTFS::Type::StopTime
-# ABSTRACT:
+# PODCLASSNAME
+# ABSTRACT: Stop time
 
 class Opendata::GTFS::Type::StopTime using Moose {
 

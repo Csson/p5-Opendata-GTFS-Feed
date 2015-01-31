@@ -1,8 +1,8 @@
-use Opendata::GTFS::Standard::Moops;    
+use Opendata::GTFS::Standard;
 
-# VERSION
-# PODNAME: Opendata::GTFS::Feed::Parser
-# ABSTRACT:
+# VERSION:
+# PODCLASSNAME
+# ABSTRACT: GTFS feed parser
 
 use Archive::Extract;
 use File::Temp;

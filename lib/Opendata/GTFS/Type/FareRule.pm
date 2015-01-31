@@ -1,8 +1,8 @@
-use Opendata::GTFS::Standard::Moops;
+use Opendata::GTFS::Standard;
 
 # VERSION
-# PODNAME: Opendata::GTFS::Type::FareRule
-# ABSTRACT:
+# PODCLASSNAME
+# ABSTRACT: Fare rule
 
 class Opendata::GTFS::Type::FareRule using Moose {
 

@@ -1,8 +1,8 @@
-use Opendata::GTFS::Standard::Moops;
+use Opendata::GTFS::Standard;
 
 # VERSION
-# PODNAME: Opendata::GTFS::Type::Route
-# ABSTRACT:
+# PODCLASSNAME
+# ABSTRACT: Route
 
 class Opendata::GTFS::Type::Route using Moose {
 

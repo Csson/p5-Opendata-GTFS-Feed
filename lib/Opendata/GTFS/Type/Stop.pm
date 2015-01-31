@@ -1,8 +1,8 @@
-use Opendata::GTFS::Standard::Moops;
+use Opendata::GTFS::Standard;
 
 # VERSION
-# PODNAME: Opendata::GTFS::Type::Stop
-# ABSTRACT:
+# PODCLASSNAME
+# ABSTRACT: Stop
 
 class Opendata::GTFS::Type::Stop using Moose {
 

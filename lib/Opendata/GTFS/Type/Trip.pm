@@ -1,8 +1,8 @@
-use Opendata::GTFS::Standard::Moops;
+use Opendata::GTFS::Standard;
 
 # VERSION
-# PODNAME: Opendata::GTFS::Type::Trip
-# ABSTRACT:
+# PODCLASSNAME
+# ABSTRACT: Trip
 
 class Opendata::GTFS::Type::Trip using Moose {
 

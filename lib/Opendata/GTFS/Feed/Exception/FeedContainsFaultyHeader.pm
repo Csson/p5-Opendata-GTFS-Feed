@@ -1,7 +1,7 @@
-use Map::Metro::Standard::Moops;
+use Map::Metro::Standard;
 
-# VERSION
-# PODNAME: Opendata::GTFS::Feed::Exception::FeedContainsFaultyHeader
+# VERSION:
+# PODCLASSNAME
 
 class Opendata::GTFS::Feed::Exception::FeedContainsFaultyHeader with Opendata::GTFS::Feed::Exception using Moose {
 

@@ -27,7 +27,7 @@ __END__
 
 =head1 DESCRIPTION
 
-Opendata::GTFS::Feed is an easy way to parse a 
+Opendata::GTFS::Feed is an easy way to parse a L<GTFS|https://developers.google.com/transit/gtfs/> feed
 
 =head1 SEE ALSO
 

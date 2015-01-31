@@ -1,8 +1,9 @@
 use 5.14.0;
 use Moops;
 
-# VERSION
-# PODNAME: Types::Opendata::GTFS
+# VERSION:
+# ABSTRACT: Types for Opendata::GTFS
+# PODCLASSNAME
 
 library  Types::Opendata::GTFS
 

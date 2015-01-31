@@ -1,8 +1,8 @@
-use Opendata::GTFS::Standard::Moops;
+use Opendata::GTFS::Standard;
 
 # VERSION
-# PODNAME: Opendata::GTFS::Type::Frequency
-# ABSTRACT:
+# PODCLASSNAME
+# ABSTRACT: Frequency
 
 class Opendata::GTFS::Type::Frequency using Moose {
 

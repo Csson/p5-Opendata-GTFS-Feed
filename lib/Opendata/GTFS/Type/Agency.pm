@@ -1,8 +1,8 @@
-use Opendata::GTFS::Standard::Moops;
+use Opendata::GTFS::Standard;
 
-# VERSION
-# PODNAME: Opendata::GTFS::Type::Agency
-# ABSTRACT:
+# VERSION:
+# PODCLASSNAME
+# ABSTRACT: Agency
 
 class Opendata::GTFS::Type::Agency using Moose {
 

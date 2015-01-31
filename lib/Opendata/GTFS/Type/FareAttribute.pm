@@ -1,8 +1,8 @@
-use Opendata::GTFS::Standard::Moops;
+use Opendata::GTFS::Standard;
 
 # VERSION
-# PODNAME: Opendata::GTFS::Type::FareAttribute
-# ABSTRACT:
+# PODCLASSNAME
+# ABSTRACT: Fare attribute
 
 class Opendata::GTFS::Type::FareAttribute using Moose {
 
