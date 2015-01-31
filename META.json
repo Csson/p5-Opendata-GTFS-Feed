@@ -4,7 +4,7 @@
       "Erik Carlsson <info@code301.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 5.029, CPAN::Meta::Converter version 2.143240",
+   "generated_by" : "Dist::Zilla version 5.031, CPAN::Meta::Converter version 2.143240",
    "license" : [
       "perl_5"
    ],
@@ -35,14 +35,104 @@
          }
       },
       "runtime" : {
+         "recommends" : {
+            "Text::CSV_XS" : "0"
+         },
          "requires" : {
-            "perl" : "5.010001"
+            "Archive::Extract" : "0",
+            "File::BOM" : "0",
+            "File::Temp" : "0",
+            "Kavorka" : "0.036",
+            "Lingua::EN::Inflect" : "0",
+            "List::AllUtils" : "0",
+            "Moops" : "0.034",
+            "Moose" : "2.0000",
+            "Moose::Role" : "2.0000",
+            "MooseX::AttributeDocumented" : "0",
+            "MooseX::StrictConstructor" : "0",
+            "Path::Tiny" : "0",
+            "Safe::Isa" : "0",
+            "Sub::Exporter" : "0",
+            "Text::CSV" : "0",
+            "Throwable::X::Types" : "0",
+            "Type::Tiny" : "0",
+            "Types::Path::Tiny" : "0",
+            "Types::Standard" : "0",
+            "Types::URI" : "0",
+            "namespace::clean" : "0",
+            "perl" : "5.014000"
          }
       },
       "test" : {
          "requires" : {
             "Test::More" : "0.96"
          }
+      }
+   },
+   "provides" : {
+      "Opendata::GTFS::Feed" : {
+         "file" : "lib/Opendata/GTFS/Feed.pm",
+         "version" : "0.0001"
+      },
+      "Opendata::GTFS::Feed::Exception" : {
+         "file" : "lib/Opendata/GTFS/Feed/Exception.pm",
+         "version" : "0.0001"
+      },
+      "Opendata::GTFS::Feed::Exception::FeedContainsFaultyHeader" : {
+         "file" : "lib/Opendata/GTFS/Feed/Exception/FeedContainsFaultyHeader.pm",
+         "version" : "0.0001"
+      },
+      "Opendata::GTFS::Standard" : {
+         "file" : "lib/Opendata/GTFS/Standard.pm",
+         "version" : "0.0001"
+      },
+      "Opendata::GTFS::Type::Agency" : {
+         "file" : "lib/Opendata/GTFS/Type/Agency.pm",
+         "version" : "0.0001"
+      },
+      "Opendata::GTFS::Type::Calendar" : {
+         "file" : "lib/Opendata/GTFS/Type/Calendar.pm",
+         "version" : "0.0001"
+      },
+      "Opendata::GTFS::Type::CalendarDate" : {
+         "file" : "lib/Opendata/GTFS/Type/CalendarDate.pm",
+         "version" : "0.0001"
+      },
+      "Opendata::GTFS::Type::FareAttribute" : {
+         "file" : "lib/Opendata/GTFS/Type/FareAttribute.pm",
+         "version" : "0.0001"
+      },
+      "Opendata::GTFS::Type::FareRule" : {
+         "file" : "lib/Opendata/GTFS/Type/FareRule.pm",
+         "version" : "0.0001"
+      },
+      "Opendata::GTFS::Type::Frequency" : {
+         "file" : "lib/Opendata/GTFS/Type/Frequency.pm",
+         "version" : "0.0001"
+      },
+      "Opendata::GTFS::Type::Route" : {
+         "file" : "lib/Opendata/GTFS/Type/Route.pm",
+         "version" : "0.0001"
+      },
+      "Opendata::GTFS::Type::Shape" : {
+         "file" : "lib/Opendata/GTFS/Type/Shape.pm",
+         "version" : "0.0001"
+      },
+      "Opendata::GTFS::Type::Stop" : {
+         "file" : "lib/Opendata/GTFS/Type/Stop.pm",
+         "version" : "0.0001"
+      },
+      "Opendata::GTFS::Type::StopTime" : {
+         "file" : "lib/Opendata/GTFS/Type/StopTime.pm",
+         "version" : "0.0001"
+      },
+      "Opendata::GTFS::Type::Transfer" : {
+         "file" : "lib/Opendata/GTFS/Type/Transfer.pm",
+         "version" : "0.0001"
+      },
+      "Opendata::GTFS::Type::Trip" : {
+         "file" : "lib/Opendata/GTFS/Type/Trip.pm",
+         "version" : "0.0001"
       }
    },
    "release_status" : "stable",
