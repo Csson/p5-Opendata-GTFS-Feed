@@ -28,3 +28,5 @@ class Opendata::GTFS::Type::StopTime using Moose {
         );
     }
 }
+
+1;

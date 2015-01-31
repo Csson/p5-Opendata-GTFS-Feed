@@ -23,3 +23,5 @@ class Opendata::GTFS::Type::Transfer using Moose {
         );
     }
 }
+
+1;

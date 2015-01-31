@@ -29,3 +29,5 @@ class Opendata::GTFS::Type::Calendar using Moose {
         );
     }
 }
+
+1;

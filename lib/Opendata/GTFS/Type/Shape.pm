@@ -24,3 +24,5 @@ class Opendata::GTFS::Type::Shape using Moose {
         );
     }
 }
+
+1;

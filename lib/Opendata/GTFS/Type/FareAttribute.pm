@@ -25,3 +25,5 @@ class Opendata::GTFS::Type::FareAttribute using Moose {
         );
     }
 }
+
+1;

@@ -26,3 +26,5 @@ class Opendata::GTFS::Type::Agency using Moose {
         );
     }
 }
+
+1;

@@ -26,3 +26,5 @@ declares Agency
     class_type StopTime      => { class => 'Opendata::GTFS::Type::StopTime' };
     class_type Trip          => { class => 'Opendata::GTFS::Type::Trip' };
 }
+
+1;

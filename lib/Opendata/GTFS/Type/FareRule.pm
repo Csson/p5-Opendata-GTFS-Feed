@@ -24,3 +24,5 @@ class Opendata::GTFS::Type::FareRule using Moose {
         );
     }
 }
+
+1;

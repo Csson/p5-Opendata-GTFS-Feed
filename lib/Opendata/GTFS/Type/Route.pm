@@ -28,3 +28,5 @@ class Opendata::GTFS::Type::Route using Moose {
         );
     }
 }
+
+1;

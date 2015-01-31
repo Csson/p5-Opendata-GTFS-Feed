@@ -31,3 +31,5 @@ class Opendata::GTFS::Type::Stop using Moose {
         );
     }
 }
+
+1;

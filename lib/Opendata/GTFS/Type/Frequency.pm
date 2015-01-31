@@ -24,3 +24,5 @@ class Opendata::GTFS::Type::Frequency using Moose {
         );
     }
 }
+
+1;

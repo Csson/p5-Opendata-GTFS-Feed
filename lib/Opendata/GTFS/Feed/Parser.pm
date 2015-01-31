@@ -184,3 +184,5 @@ class Opendata::GTFS::Feed::Parser using Moose {
         close $fh or die sprintf "Can't close %s", $self->directory->child($filename);
     }
 }
+
+1;

@@ -29,3 +29,5 @@ class Opendata::GTFS::Type::Trip using Moose {
         );
     }
 }
+
+1;

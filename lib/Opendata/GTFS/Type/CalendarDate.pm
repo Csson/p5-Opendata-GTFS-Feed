@@ -22,3 +22,5 @@ class Opendata::GTFS::Type::CalendarDate using Moose {
         );
     }
 }
+
+1;

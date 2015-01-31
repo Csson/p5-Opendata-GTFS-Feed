@@ -24,3 +24,5 @@ class Opendata::GTFS::Feed::Exception::FeedContainsFaultyHeader with Opendata::G
         default => q{Feed contains faulty header [%{header}s] in file [%{filename}s]},
     );
 }
+
+1;
