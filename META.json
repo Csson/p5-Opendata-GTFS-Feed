@@ -136,7 +136,17 @@
       }
    },
    "release_status" : "stable",
-   "resources" : {},
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/Csson/p5-Opendata-GTFS-Feed/issues"
+      },
+      "homepage" : "https://metacpan.org/release/Opendata-GTFS-Feed",
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/Csson/p5-Opendata-GTFS-Feed.git",
+         "web" : "https://github.com/Csson/p5-Opendata-GTFS-Feed"
+      }
+   },
    "version" : "0.0001"
 }
 
