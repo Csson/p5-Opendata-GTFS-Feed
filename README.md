@@ -4,7 +4,7 @@ Opendata::GTFS::Feed - Parse General Transit Feeds (GTFS)
 
 # VERSION
 
-Version 0.0001, released 2015-01-09.
+Version 0.0001, released 2015-01-31.
 
 # SYNOPSIS
 
@@ -13,9 +13,44 @@ Version 0.0001, released 2015-01-09.
 
 # DESCRIPTION
 
-Opendata::GTFS::Feed is an easy way to parse a 
+Opendata::GTFS::Feed is an easy way to parse [GTFS](https://developers.google.com/transit/gtfs/) feeds.
 
-# SEE ALSO
+# ATTRIBUTES
+
+All list attributes has the [Array](https://metacpan.org/pod/Moose::Meta::Attribute::Native::Trait::Array) trait. Currently the following public methods are created for those attributes:
+
+- `elements` -> `all_$attribute`, where `$attribute` is the attribute name.
+- `count` -> `count_$attribute`
+
+## file
+
+## url
+
+## directory
+
+## agencies
+
+## calendar\_dates
+
+## calendars
+
+## fare\_attributes
+
+## fare\_rules
+
+## frequencies
+
+## routes
+
+## shapes
+
+## stop\_times
+
+## stops
+
+## transfers
+
+## trips
 
 # HOMEPAGE
 
