@@ -11,7 +11,6 @@ extends  Types::Standard,
          Types::Path::Tiny,
          Types::URI
 
-declares Agency
 {
     class_type Agency        => { class => 'Opendata::GTFS::Type::Agency' };
 	class_type Calendar      => { class => 'Opendata::GTFS::Type::Calendar' };
@@ -28,3 +27,27 @@ declares Agency
 }
 
 1;
+
+__END__
+
+=pod
+
+=encoding utf-8
+
+=head1 TYPES
+
+=for :list
+* L<Agency|Opendata::GTFS::TypeAgency>
+* L<Calendar|Opendata::GTFS::Type::Calendar>
+* L<CalendarDate|Opendata::GTFS::Type::CalendarDate>
+* L<FareAttribute|Opendata::GTFS::Type::FareAttribute>
+* L<FareRule|Opendata::GTFS::Type::FareRule>
+* L<Frequency|Opendata::GTFS::Type::Frequency>
+* L<Route|Opendata::GTFS::Type::Route>
+* L<Shape|Opendata::GTFS::Type::Shape>
+* L<Stop|Opendata::GTFS::Type::Stop>
+* L<Transfer|Opendata::GTFS::Type::Transfer>
+* L<StopTime|Opendata::GTFS::Type::StopTime>
+* L<Trip|Opendata::GTFS::Type::Trip>
+
+=cut
