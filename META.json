@@ -93,6 +93,7 @@
          },
          "requires" : {
             "Archive::Extract" : "0",
+            "Archive::Zip" : "0",
             "File::BOM" : "0",
             "File::Temp" : "0",
             "Kavorka" : "0.036",

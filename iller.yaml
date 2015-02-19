@@ -23,6 +23,7 @@ name: Opendata-GTFS-Feed
       - Types::URI
       - Type::Tiny
       - Path::Tiny
+      - Archive::Zip
       - Archive::Extract
       - File::BOM
       - File::Temp
