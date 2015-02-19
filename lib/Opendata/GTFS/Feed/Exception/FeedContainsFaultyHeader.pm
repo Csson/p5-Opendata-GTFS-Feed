@@ -1,4 +1,4 @@
-use Map::Metro::Standard;
+use Opendata::GTFS::Standard;
 
 # VERSION:
 # PODCLASSNAME
