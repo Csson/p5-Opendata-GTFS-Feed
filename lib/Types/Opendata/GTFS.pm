@@ -1,7 +1,6 @@
 use 5.14.0;
 use Moops;
 
-# VERSION:
 # ABSTRACT: Types for Opendata::GTFS
 # PODCLASSNAME
 
@@ -12,6 +11,9 @@ extends  Types::Standard,
          Types::URI
 
 {
+
+    # VERSION:
+
     class_type Agency        => { class => 'Opendata::GTFS::Type::Agency' };
     class_type Calendar      => { class => 'Opendata::GTFS::Type::Calendar' };
     class_type CalendarDate  => { class => 'Opendata::GTFS::Type::CalendarDate' };

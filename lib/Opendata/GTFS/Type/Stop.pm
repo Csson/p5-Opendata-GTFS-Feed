@@ -1,10 +1,11 @@
 use Opendata::GTFS::Standard;
 
-# VERSION
 # PODCLASSNAME
 # ABSTRACT: Stop
 
 class Opendata::GTFS::Type::Stop using Moose {
+
+    # VERSION
 
     my @columns = qw/
         1 stop_id

@@ -1,10 +1,11 @@
 use Opendata::GTFS::Standard;
 
-# VERSION
 # PODCLASSNAME
 # ABSTRACT: Transfer
 
 class Opendata::GTFS::Type::Transfer using Moose {
+
+    # VERSION
 
     my @columns = qw/
         1 from_stop_id

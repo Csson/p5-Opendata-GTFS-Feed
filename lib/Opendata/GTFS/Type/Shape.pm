@@ -1,10 +1,11 @@
 use Opendata::GTFS::Standard;
 
-# VERSION
 # PODCLASSNAME
 # ABSTRACT: Shape:
 
 class Opendata::GTFS::Type::Shape using Moose {
+
+    # VERSION
 
     my @columns = qw/
         1 shape_id

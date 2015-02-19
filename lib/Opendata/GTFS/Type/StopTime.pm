@@ -1,10 +1,11 @@
 use Opendata::GTFS::Standard;
 
-# VERSION
 # PODCLASSNAME
 # ABSTRACT: Stop time
 
 class Opendata::GTFS::Type::StopTime using Moose {
+
+    # VERSION
 
     my @columns = qw/
         1 trip_id

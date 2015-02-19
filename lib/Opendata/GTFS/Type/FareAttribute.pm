@@ -1,10 +1,11 @@
 use Opendata::GTFS::Standard;
 
-# VERSION
 # PODCLASSNAME
 # ABSTRACT: Fare attribute
 
 class Opendata::GTFS::Type::FareAttribute using Moose {
+
+    # VERSION
 
     my @columns = qw/
         1 fare_id

@@ -1,10 +1,11 @@
 use Opendata::GTFS::Standard;
 
-# VERSION
 # PODCLASSNAME
 # ABSTRACT: Calendar date
 
 class Opendata::GTFS::Type::CalendarDate using Moose {
+
+    # VERSION
 
     my @columns = qw/
         1 service_id

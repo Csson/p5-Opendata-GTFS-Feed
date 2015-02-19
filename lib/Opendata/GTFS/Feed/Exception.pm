@@ -1,11 +1,10 @@
 use 5.14.0;
 use warnings;
 
-# VERSION:
-
 # Insired by Throwable::X
 package Opendata::GTFS::Feed::Exception {
 
+    # VERSION:
     use Moose::Role;
     use Throwable::X::Types;
 

@@ -1,10 +1,11 @@
 use Opendata::GTFS::Standard;
 
-# VERSION
 # PODCLASSNAME
 # ABSTRACT: Frequency
 
 class Opendata::GTFS::Type::Frequency using Moose {
+
+    # VERSION
 
     my @columns = qw/
         1 trip_id

@@ -1,10 +1,11 @@
 use Opendata::GTFS::Standard;
 
-# VERSION
 # PODCLASSNAME
 # ABSTRACT: Fare rule
 
 class Opendata::GTFS::Type::FareRule using Moose {
+
+    # VERSION
 
     my @columns = qw/
         1 fare_id

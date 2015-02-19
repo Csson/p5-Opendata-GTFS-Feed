@@ -1,10 +1,10 @@
 use Opendata::GTFS::Standard;
 
-# VERSION:
 # PODCLASSNAME
 
 class Opendata::GTFS::Feed::Exception::FeedContainsFaultyHeader with Opendata::GTFS::Feed::Exception using Moose {
 
+    # VERSION:
     use Opendata::GTFS::Feed::Exception -all;
 
     has filename => (

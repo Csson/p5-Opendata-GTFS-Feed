@@ -1,10 +1,11 @@
 use Opendata::GTFS::Standard;
 
-# VERSION
 # PODCLASSNAME
 # ABSTRACT: Route
 
 class Opendata::GTFS::Type::Route using Moose {
+
+    # VERSION
 
     my @columns = qw/
         1 route_id

@@ -1,6 +1,5 @@
 use Opendata::GTFS::Standard;
 
-# VERSION
 # PODCLASSNAME
 # ABSTRACT: Parse General Transit Feeds (GTFS)
 
@@ -25,6 +24,8 @@ use Opendata::GTFS::Type::Transfer;
 use Opendata::GTFS::Type::Trip;
 
 class Opendata::GTFS::Feed using Moose {
+
+    # VERSION
 
     use Path::Tiny;
     use MooseX::AttributeDocumented;

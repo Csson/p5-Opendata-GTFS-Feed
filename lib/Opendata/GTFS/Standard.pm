@@ -1,8 +1,8 @@
 use 5.14.0;
 
-# VERSION
-
 package Opendata::GTFS::Standard {
+
+    # VERSION
 
     use base 'Moops';
     use List::AllUtils();

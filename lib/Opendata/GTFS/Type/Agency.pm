@@ -1,10 +1,11 @@
 use Opendata::GTFS::Standard;
 
-# VERSION:
 # PODCLASSNAME
 # ABSTRACT: Agency
 
 class Opendata::GTFS::Type::Agency using Moose {
+
+    # VERSION:
 
     my @columns = qw/
         0 agency_id
