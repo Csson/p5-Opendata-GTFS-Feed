@@ -9,7 +9,6 @@ package Opendata::GTFS::Standard {
     use MooseX::StrictConstructor();
     use Types::Opendata::GTFS();
     use Safe::Isa;
-    
 
     sub import {
         my $class = shift;
