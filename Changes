@@ -17,6 +17,28 @@ Revision history for Opendata-GTFS-Feed
 
  [Revision]
 
+ [Testing]
+
+0.0102 2015-02-19T18:27:47Z CET
+ [Documentation]
+ - Added link to github repository from pod.
+
+ [Requirements]
+ - Added a develop prereq to add link to github.
+
+0.0101 2015-02-19T18:10:25Z CET
+ [Bug Fixes]
+ - One class used wrong ::Standard module.
+
+ [Meta]
+ - Remove cpanfile, set prereqs in dist.ini.
+ - Setup travis build.
+ - strict and warnings everywhere (already enforced by Moops, but anyway).
+
+ [Requirements]
+ - Listed Archive::Zip as runtime prereq.
+ - A few new dist zilla plugins (dev prereqs).
+
 0.0100 2015-01-31T19:24:53Z CET
  - Initial release
 

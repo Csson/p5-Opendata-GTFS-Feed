@@ -4,7 +4,7 @@ Opendata::GTFS::Feed - Parse General Transit Feeds (GTFS)
 
 # VERSION
 
-Version 0.0100, released 2015-01-31.
+Version 0.0102, released 2015-02-19.
 
 # SYNOPSIS
 
@@ -51,6 +51,10 @@ All list attributes has the [Array](https://metacpan.org/pod/Moose::Meta::Attrib
 ## transfers
 
 ## trips
+
+# SOURCE
+
+[https://github.com/Csson/p5-Opendata-GTFS-Feed](https://github.com/Csson/p5-Opendata-GTFS-Feed)
 
 # HOMEPAGE
 
