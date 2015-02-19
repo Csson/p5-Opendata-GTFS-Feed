@@ -1,5 +1,7 @@
 use 5.14.0;
 use Moops;
+use strict;
+use warnings;
 
 # ABSTRACT: Types for Opendata::GTFS
 # PODCLASSNAME

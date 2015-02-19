@@ -1,4 +1,6 @@
 use Opendata::GTFS::Standard;
+use strict;
+use warnings;
 
 # PODCLASSNAME
 # ABSTRACT: Calendar date
