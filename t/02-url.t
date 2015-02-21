@@ -12,7 +12,7 @@ use File::Temp;
 use Opendata::GTFS::Feed;
 
 my $tempdir = File::Temp->newdir();
-my $feed = Opendata::GTFS::Feed->new(url => 'https://developers.google.com/transit/gtfs/examples/sample-feed.zip', directory => $tempdir);
+my $feed = Opendata::GTFS::Feed->new(url => 'https://github.com/Csson/p5-Opendata-GTFS-Feed/blob/master/github/sample-feed.zip', directory => $tempdir);
 
 ok 1, 'Fetched zipped feed from google';
 
