@@ -39,6 +39,17 @@ name: Opendata-GTFS-Feed
     +before: Git::Tag
     perl_version: 5.14 5.20
 
+  - +remove_plugin: Git::GatherDir
+
+  - +add_plugin: Git::GatherDir
+    +before: CopyFilesFromBuild
+    exclude_filename:
+      - META.json
+      - LICENSE
+      - README.md
+      - Build.PL
+    exclude_match:
+      - ^github/
 ---
 +doctype: weaver
 
