@@ -4,7 +4,7 @@ Opendata::GTFS::Feed - Parse General Transit Feeds (GTFS)
 
 # VERSION
 
-Version 0.0102, released 2015-02-19.
+Version 0.0104, released 2015-02-22.
 
 # SYNOPSIS
 

@@ -19,6 +19,20 @@ Revision history for Opendata-GTFS-Feed
 
  [Testing]
 
+0.0104 2015-02-22T11:15:08Z CET
+ [Requirements]
+ - New test prereq: Test::RequiresInternet.
+
+ [Testing]
+ - Make sure we can connect to github during http test (otherwise skip
+   test).
+
+0.0103 2015-02-21T22:21:43Z CET
+ [Testing]
+ - The fetch-feed-from-url tests have sometimes been failing due to
+   internal error at Google. The sample feed is now moved to the github
+   repository and fetched from there.
+
 0.0102 2015-02-19T18:27:47Z CET
  [Documentation]
  - Added link to github repository from pod.
