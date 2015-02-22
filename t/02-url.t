@@ -8,6 +8,8 @@ plan skip_all => "Skipped http test since GTFS_SKIP_HTTP_TEST is in effect" if $
 eval "use HTTP::Tiny";
 plan skip_all => 'HTTP::Tiny required to fetch feeds via http' if $@;
 
+use Test::RequiresInternet ('github.com' => 443);
+
 use File::Temp;
 use Opendata::GTFS::Feed;
 

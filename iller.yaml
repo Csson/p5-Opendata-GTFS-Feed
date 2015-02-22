@@ -31,6 +31,9 @@ name: Opendata-GTFS-Feed
       - Text::CSV
     recommends:
       - Text::CSV_XS
+  test:
+    requires:
+      - Test::RequiresInternet: 0.02
 
 +plugins:
   - +config: Author::CSSON
