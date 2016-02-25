@@ -1,7 +1,11 @@
-/Opendata-GTFS-Feed-*
+# This file was auto-generated from iller.yaml by Dist::Iller on 2016-02-25 11:52:43 UTC.
+# The following configs were used:
+# * Dist::Iller::Config::Author::CSSON: 0.0309
+
 /.build
 /_build*
 /Build
 MYMETA.*
 !META.json
 /.prove
+/Opendata-GTFS-Feed-*

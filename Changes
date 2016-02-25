@@ -9,15 +9,18 @@ Revision history for Opendata-GTFS-Feed
 
  [Enhancements]
 
- [Meta]
+ [Other Changes]
 
  [New Features]
 
  [Requirements]
+  - Rewritten to no longer use Moops/Kavorka.
+  - Perl requirement lowered to 5.10 (from 5.14).
 
  [Revision]
 
  [Testing]
+  - Further attempts to avoid failing tests due to external factors (github sometimes replies with code 599).
 
 0.0104 2015-02-22T11:15:08Z CET
  [Requirements]

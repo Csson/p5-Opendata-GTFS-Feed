@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-use 5.014000;
+use 5.010000;
 
 use ExtUtils::MakeMaker;
 
@@ -14,31 +14,27 @@ my %WriteMakefileArgs = (
   },
   "DISTNAME" => "Opendata-GTFS-Feed",
   "LICENSE" => "perl",
-  "MIN_PERL_VERSION" => "5.014000",
+  "MIN_PERL_VERSION" => "5.010000",
   "NAME" => "Opendata::GTFS::Feed",
   "PREREQ_PM" => {
     "Archive::Extract" => 0,
     "Archive::Zip" => 0,
     "File::BOM" => 0,
     "File::Temp" => 0,
-    "Kavorka" => "0.036",
     "Lingua::EN::Inflect" => 0,
-    "List::AllUtils" => 0,
-    "Moops" => "0.034",
-    "Moose" => "2.0000",
-    "Moose::Role" => "2.0000",
+    "List::Util" => "1.42",
+    "List::UtilsBy" => 0,
+    "Moose" => "2.1405",
+    "Moose::Role" => 0,
     "MooseX::AttributeDocumented" => "0.1003",
-    "MooseX::StrictConstructor" => "0.19",
+    "MooseX::AttributeShortcuts" => "0.028",
     "Path::Tiny" => "0.072",
-    "Safe::Isa" => "1.000005",
-    "Sub::Exporter" => 0,
     "Text::CSV" => 0,
-    "Throwable::X::Types" => 0,
     "Type::Tiny" => "1.000005",
     "Types::Path::Tiny" => "0.005",
     "Types::Standard" => "1.000005",
     "Types::URI" => 0,
-    "namespace::clean" => 0
+    "namespace::autoclean" => "0.22"
   },
   "TEST_REQUIRES" => {
     "ExtUtils::MakeMaker" => 0,
@@ -46,7 +42,8 @@ my %WriteMakefileArgs = (
     "IO::Handle" => 0,
     "IPC::Open3" => 0,
     "Test::More" => "0.96",
-    "Test::RequiresInternet" => "0.02"
+    "Test::RequiresInternet" => "0.02",
+    "Try::Tiny" => "0.24"
   },
   "VERSION" => "0.0105",
   "test" => {
@@ -64,26 +61,23 @@ my %FallbackPrereqs = (
   "File::Temp" => 0,
   "IO::Handle" => 0,
   "IPC::Open3" => 0,
-  "Kavorka" => "0.036",
   "Lingua::EN::Inflect" => 0,
-  "List::AllUtils" => 0,
-  "Moops" => "0.034",
-  "Moose" => "2.0000",
-  "Moose::Role" => "2.0000",
+  "List::Util" => "1.42",
+  "List::UtilsBy" => 0,
+  "Moose" => "2.1405",
+  "Moose::Role" => 0,
   "MooseX::AttributeDocumented" => "0.1003",
-  "MooseX::StrictConstructor" => "0.19",
+  "MooseX::AttributeShortcuts" => "0.028",
   "Path::Tiny" => "0.072",
-  "Safe::Isa" => "1.000005",
-  "Sub::Exporter" => 0,
   "Test::More" => "0.96",
   "Test::RequiresInternet" => "0.02",
   "Text::CSV" => 0,
-  "Throwable::X::Types" => 0,
+  "Try::Tiny" => "0.24",
   "Type::Tiny" => "1.000005",
   "Types::Path::Tiny" => "0.005",
   "Types::Standard" => "1.000005",
   "Types::URI" => 0,
-  "namespace::clean" => 0
+  "namespace::autoclean" => "0.22"
 );
 
 
