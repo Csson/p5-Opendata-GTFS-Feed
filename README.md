@@ -6,15 +6,15 @@ Opendata::GTFS::Feed - Parse General Transit Feeds (GTFS)
     <p>
     <img src="https://img.shields.io/badge/perl-5.10+-blue.svg" alt="Requires Perl 5.10+" />
     <a href="https://travis-ci.org/Csson/p5-Opendata-GTFS-Feed"><img src="https://api.travis-ci.org/Csson/p5-Opendata-GTFS-Feed.svg?branch=master" alt="Travis status" /></a>
-    <a href="http://cpants.cpanauthors.org/dist/Opendata-GTFS-Feed-0.0105"><img src="https://badgedepot.code301.com/badge/kwalitee/Opendata-GTFS-Feed/0.0105" alt="Distribution kwalitee" /></a>
-    <a href="http://matrix.cpantesters.org/?dist=Opendata-GTFS-Feed%200.0105"><img src="https://badgedepot.code301.com/badge/cpantesters/Opendata-GTFS-Feed/0.0105" alt="CPAN Testers result" /></a>
+    <a href="http://cpants.cpanauthors.org/dist/Opendata-GTFS-Feed-0.0200"><img src="https://badgedepot.code301.com/badge/kwalitee/Opendata-GTFS-Feed/0.0200" alt="Distribution kwalitee" /></a>
+    <a href="http://matrix.cpantesters.org/?dist=Opendata-GTFS-Feed%200.0200"><img src="https://badgedepot.code301.com/badge/cpantesters/Opendata-GTFS-Feed/0.0200" alt="CPAN Testers result" /></a>
     <img src="https://img.shields.io/badge/coverage-95.2%-yellow.svg" alt="coverage 95.2%" />
     </p>
 </div>
 
 # VERSION
 
-Version 0.0105, released 2016-02-25.
+Version 0.0200, released 2016-02-25.
 
 :splint classname Opendata::GTFS::Feed
 
