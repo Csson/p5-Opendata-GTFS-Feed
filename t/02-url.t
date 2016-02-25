@@ -1,6 +1,7 @@
 use strict;
 use warnings FATAL => 'all';
 use Test::More;
+use Try::Tiny;
 use if $ENV{'AUTHOR_TESTING'}, 'Test::Warnings';
 
 plan skip_all => "Skipped http test since GTFS_SKIP_HTTP_TEST is in effect" if $ENV{'GTFS_SKIP_HTTP_TEST'};
@@ -14,7 +15,18 @@ use File::Temp;
 use Opendata::GTFS::Feed;
 
 my $tempdir = File::Temp->newdir();
-my $feed = Opendata::GTFS::Feed->new(url => 'https://github.com/Csson/p5-Opendata-GTFS-Feed/raw/master/github/sample-feed.zip', directory => $tempdir);
+my $feed;
+try {
+    $feed = Opendata::GTFS::Feed->new(url => 'https://github.com/Csson/p5-Opendata-GTFS-Feed/raw/master/github/sample-feed.zip', directory => $tempdir);
+}
+catch {
+    if($_ =~ m/\b599\b/) {
+        plan skip_all => 'Github errored';
+    }
+    else {
+        die $_;
+    }
+};
 
 ok 1, 'Fetched zipped feed from google';
 
