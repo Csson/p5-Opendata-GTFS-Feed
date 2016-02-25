@@ -1,23 +1,20 @@
 ---
-+doctype: dist
+doctype: dist
 
-name: Opendata-GTFS-Feed
+header:
+  name: Opendata-GTFS-Feed
 
-+prereqs:
+prereqs:
   runtime:
     requires:
-      - perl: 5.014000
-      - Moose: 2.0000
-      - Moose::Role: 2.0000
-      - Kavorka: 0.036
-      - Moops: 0.034
+      - perl: 5.010000
+      - Moose
+      - Moose::Role
       - MooseX::AttributeDocumented
-      - MooseX::StrictConstructor
-      - List::AllUtils
-      - Safe::Isa
-      - Throwable::X::Types
-      - namespace::clean
-      - Sub::Exporter
+      - MooseX::AttributeShortcuts
+      - List::Util
+      - List::UtilsBy
+      - namespace::autoclean
       - Types::Standard
       - Types::Path::Tiny
       - Types::URI
@@ -34,27 +31,32 @@ name: Opendata-GTFS-Feed
   test:
     requires:
       - Test::RequiresInternet: 0.02
+      - Try::Tiny
 
-+plugins:
+plugins:
   - +config: Author::CSSON
 
-  - +add_plugin: TravisYML
-    +before: Git::Tag
-    perl_version: 5.14 5.20
-
-  - +remove_plugin: Git::GatherDir
-
-  - +add_plugin: Git::GatherDir
-    +before: CopyFilesFromBuild
-    exclude_filename:
-      - META.json
-      - LICENSE
-      - README.md
-      - Build.PL
+  - +extend_plugin: Git::GatherDir
     exclude_match:
       - ^github/
----
-+doctype: weaver
 
-+plugins:
+  - +extend_plugin: Test::EOL
+    finder: ':InstallModules'
+
+  - +extend_plugin: Test::NoTabs
+    finder: ':InstallModules'
+
+---
+doctype: weaver
+
+plugins:
   - +config: Author::CSSON
+
+---
+doctype: cpanfile
+
+---
+doctype: gitignore
+config: Author::CSSON
+always:
+ - /Opendata-GTFS-Feed-*
