@@ -1,30 +1,33 @@
-use Opendata::GTFS::Standard;
+use 5.10.0;
 use strict;
 use warnings;
 
-# PODCLASSNAME
+package Opendata::GTFS::Type::CalendarDate;
+
 # ABSTRACT: Calendar date
+# AUTHORITY
+our $VERSION = '0.0105';
 
-class Opendata::GTFS::Type::CalendarDate using Moose {
+use Opendata::GTFS::Feed::Elk;
+use Types::Standard qw/Maybe Str/;
 
-    # VERSION
+my @columns = qw/
+    1 service_id
+    1 date
+    1 exception_type
+/;
 
-    my @columns = qw/
-        1 service_id
-        1 date
-        1 exception_type
-    /;
+for (my $i = 0; $i < $#columns; $i += 2) {
+    my $required = $columns[$i];
+    my $column = $columns[$i + 1];
 
-    for (my $i = 0; $i < $#columns; $i += 2) {
-        my $required = $columns[$i];
-        my $column = $columns[$i + 1];
-
-        has $column => (
-            is => 'ro',
-            isa => ($required ? Str : Maybe[Str]),
-        );
-    }
+    has $column => (
+        is => 'ro',
+        isa => ($required ? Str : Maybe[Str]),
+    );
 }
+
+__PACKAGE__->meta->make_immutable;
 
 1;
 

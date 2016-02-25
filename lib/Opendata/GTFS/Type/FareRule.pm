@@ -1,32 +1,35 @@
-use Opendata::GTFS::Standard;
+use 5.10.0;
 use strict;
 use warnings;
 
-# PODCLASSNAME
+package Opendata::GTFS::Type::FareRule;
+
 # ABSTRACT: Fare rule
+# AUTHORITY
+our $VERSION = '0.0105';
 
-class Opendata::GTFS::Type::FareRule using Moose {
+use Opendata::GTFS::Feed::Elk;
+use Types::Standard qw/Maybe Str/;
 
-    # VERSION
+my @columns = qw/
+    1 fare_id
+    0 route_id
+    0 origin_id
+    0 destination_id
+    0 contains_id
+/;
 
-    my @columns = qw/
-        1 fare_id
-        0 route_id
-        0 origin_id
-        0 destination_id
-        0 contains_id
-    /;
+for (my $i = 0; $i < $#columns; $i += 2) {
+    my $required = $columns[$i];
+    my $column = $columns[$i + 1];
 
-    for (my $i = 0; $i < $#columns; $i += 2) {
-        my $required = $columns[$i];
-        my $column = $columns[$i + 1];
-
-        has $column => (
-            is => 'ro',
-            isa => ($required ? Str : Maybe[Str]),
-        );
-    }
+    has $column => (
+        is => 'ro',
+        isa => ($required ? Str : Maybe[Str]),
+    );
 }
+
+__PACKAGE__->meta->make_immutable;
 
 1;
 
