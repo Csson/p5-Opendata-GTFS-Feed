@@ -11,16 +11,6 @@ plan skip_all => 'HTTP::Tiny required to fetch feeds via http' if $@;
 
 use Test::RequiresInternet ('github.com' => 443);
 
-# Silence Archive::Extract install-from-cpan warning to make builds pass on travis without bumping A::E version
-$SIG{'__WARN__'} = sub {
-    my $warning = shift;
-    if($warning =~ m/Archive::Extract will be removed/) {
-        diag "Caught warning: $warning";
-    }
-    else {
-        warn $warning;
-    }
-};
 use File::Temp;
 use Opendata::GTFS::Feed;
 

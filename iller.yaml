@@ -46,6 +46,10 @@ plugins:
   - +extend_plugin: Test::NoTabs
     finder: ':InstallModules'
 
+  - +extend_plugin: TravisYML
+    pre_install:
+     - cpanm Archive::Extract
+
 ---
 doctype: weaver
 
