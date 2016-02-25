@@ -6,7 +6,7 @@ package Opendata::GTFS::Type::Trip;
 
 # ABSTRACT: Trip
 # AUTHORITY
-our $VERSION = '0.0105';
+our $VERSION = '0.0201';
 
 use Opendata::GTFS::Feed::Elk;
 use Types::Standard qw/Maybe Str/;
