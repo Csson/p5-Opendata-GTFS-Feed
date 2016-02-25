@@ -6,7 +6,7 @@ package Opendata::GTFS::Feed::Elk;
 
 # ABSTRACT: Internal Moose
 # AUTHORITY
-our $VERSION = '0.0201';
+our $VERSION = '0.0202';
 
 use Moose();
 use MooseX::AttributeShortcuts();

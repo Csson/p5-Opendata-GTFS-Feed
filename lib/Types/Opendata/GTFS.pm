@@ -6,7 +6,7 @@ package Types::Opendata::GTFS;
 
 # ABSTRACT: Types for Opendata::GTFS
 # AUTHORITY
-our $VERSION = '0.0201';
+our $VERSION = '0.0202';
 
 use namespace::autoclean;
 use Type::Library -base;

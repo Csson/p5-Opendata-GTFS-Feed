@@ -6,7 +6,7 @@ package Opendata::GTFS::Feed;
 
 # ABSTRACT: Parse General Transit Feeds (GTFS)
 # AUTHORITY
-our $VERSION = '0.0201';
+our $VERSION = '0.0202';
 
 use Opendata::GTFS::Feed::Elk;
 use Archive::Extract;
