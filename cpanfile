@@ -1,4 +1,4 @@
-# This file was auto-generated from iller.yaml by Dist::Iller on 2016-02-25 12:56:00 UTC.
+# This file was auto-generated from iller.yaml by Dist::Iller on 2016-02-25 15:12:37 UTC.
 
 on runtime => sub {
     requires 'Archive::Extract' => '0';
@@ -7,7 +7,7 @@ on runtime => sub {
     requires 'File::Temp' => '0';
     requires 'Lingua::EN::Inflect' => '0';
     requires 'List::Util' => '1.42';
-    requires 'List::UtilsBy' => '0';
+    requires 'List::UtilsBy' => '0.04';
     requires 'Moose' => '2.1405';
     requires 'Moose::Role' => '0';
     requires 'MooseX::AttributeDocumented' => '0.1003';
@@ -94,6 +94,7 @@ on develop => sub {
     requires 'Dist::Zilla::Plugin::TravisYML' => '1.15';
     requires 'Dist::Zilla::Plugin::UploadToCPAN' => '0';
     requires 'Pod::Elemental::Transformer::List' => '0';
+    requires 'Pod::Elemental::Transformer::Splint' => '0.1201';
     requires 'Pod::Weaver::Plugin::SingleEncoding' => '0';
     requires 'Pod::Weaver::Plugin::Transformer' => '0';
     requires 'Pod::Weaver::PluginBundle::CorePrep' => '0';
