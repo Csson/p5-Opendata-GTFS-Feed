@@ -1,32 +1,35 @@
-use Opendata::GTFS::Standard;
+use 5.10.0;
 use strict;
 use warnings;
 
-# PODCLASSNAME
+package Opendata::GTFS::Type::Shape;
+
 # ABSTRACT: Shape:
+# AUTHORITY
+our $VERSION = '0.0105';
 
-class Opendata::GTFS::Type::Shape using Moose {
+use Opendata::GTFS::Feed::Elk;
+use Types::Standard qw/Maybe Str/;
 
-    # VERSION
+my @columns = qw/
+    1 shape_id
+    1 shape_pt_lat
+    1 shape_pt_lon
+    1 shape_pt_sequence
+    0 shape_dist_traveled
+/;
 
-    my @columns = qw/
-        1 shape_id
-        1 shape_pt_lat
-        1 shape_pt_lon
-        1 shape_pt_sequence
-        0 shape_dist_traveled
-    /;
+for (my $i = 0; $i < $#columns; $i += 2) {
+    my $required = $columns[$i];
+    my $column = $columns[$i + 1];
 
-    for (my $i = 0; $i < $#columns; $i += 2) {
-        my $required = $columns[$i];
-        my $column = $columns[$i + 1];
-
-        has $column => (
-            is => 'ro',
-            isa => ($required ? Str : Maybe[Str]),
-        );
-    }
+    has $column => (
+        is => 'ro',
+        isa => ($required ? Str : Maybe[Str]),
+    );
 }
+
+__PACKAGE__->meta->make_immutable;
 
 1;
 

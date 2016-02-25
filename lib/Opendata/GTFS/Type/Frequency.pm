@@ -1,32 +1,35 @@
-use Opendata::GTFS::Standard;
+use 5.10.0;
 use strict;
 use warnings;
 
-# PODCLASSNAME
+package Opendata::GTFS::Type::Frequency;
+
 # ABSTRACT: Frequency
+# AUTHORITY
+our $VERSION = '0.0105';
 
-class Opendata::GTFS::Type::Frequency using Moose {
+use Opendata::GTFS::Feed::Elk;
+use Types::Standard qw/Maybe Str/;
 
-    # VERSION
+my @columns = qw/
+    1 trip_id
+    1 start_time
+    1 end_time
+    1 headway_secs
+    0 exact_times
+/;
 
-    my @columns = qw/
-        1 trip_id
-        1 start_time
-        1 end_time
-        1 headway_secs
-        0 exact_times
-    /;
+for (my $i = 0; $i < $#columns; $i += 2) {
+    my $required = $columns[$i];
+    my $column = $columns[$i + 1];
 
-    for (my $i = 0; $i < $#columns; $i += 2) {
-        my $required = $columns[$i];
-        my $column = $columns[$i + 1];
-
-        has $column => (
-            is => 'ro',
-            isa => ($required ? Str : Maybe[Str]),
-        );
-    }
+    has $column => (
+        is => 'ro',
+        isa => ($required ? Str : Maybe[Str]),
+    );
 }
+
+__PACKAGE__->meta->make_immutable;
 
 1;
 
