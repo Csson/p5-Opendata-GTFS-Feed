@@ -3,6 +3,16 @@ use warnings FATAL => 'all';
 use Test::More;
 use if $ENV{'AUTHOR_TESTING'}, 'Test::Warnings';
 
+$SIG{'__WARN__'} = sub {
+    # Silence Archive::Extract install-from-cpan warning to make builds pass on travis without bumping A::E version
+    if(caller eq 'Archive::Extract') {
+        diag 'Caught warning: ' . shift;
+    }
+    else {
+        warn shift;
+    }
+};
+
 use Opendata::GTFS::Feed;
 
 ok 1;
