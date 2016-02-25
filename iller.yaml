@@ -4,6 +4,8 @@ doctype: dist
 header:
   name: Opendata-GTFS-Feed
 
+add_prereqs_as_authordeps: 1
+
 prereqs:
   runtime:
     requires:
@@ -13,7 +15,7 @@ prereqs:
       - MooseX::AttributeDocumented
       - MooseX::AttributeShortcuts
       - List::Util
-      - List::UtilsBy
+      - List::UtilsBy: 0.04
       - namespace::autoclean
       - Types::Standard
       - Types::Path::Tiny
@@ -49,7 +51,6 @@ plugins:
   - +extend_plugin: TravisYML
     pre_install:
      - cpanm Archive::Extract
-     - cpanm Pod::Elemental::Transformer::Splint
 
 ---
 doctype: weaver

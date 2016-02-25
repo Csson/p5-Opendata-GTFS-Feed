@@ -1,4 +1,4 @@
-# This file was auto-generated from iller.yaml by Dist::Iller on 2016-02-25 14:46:36 UTC.
+# This file was auto-generated from iller.yaml by Dist::Iller on 2016-02-25 15:12:37 UTC.
 
 on runtime => sub {
     requires 'Archive::Extract' => '0';
@@ -7,7 +7,7 @@ on runtime => sub {
     requires 'File::Temp' => '0';
     requires 'Lingua::EN::Inflect' => '0';
     requires 'List::Util' => '1.42';
-    requires 'List::UtilsBy' => '0';
+    requires 'List::UtilsBy' => '0.04';
     requires 'Moose' => '2.1405';
     requires 'Moose::Role' => '0';
     requires 'MooseX::AttributeDocumented' => '0.1003';
