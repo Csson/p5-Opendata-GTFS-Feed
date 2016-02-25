@@ -55,6 +55,7 @@ doctype: weaver
 
 plugins:
   - +config: Author::CSSON
+    splint: 1
 
 ---
 doctype: cpanfile
