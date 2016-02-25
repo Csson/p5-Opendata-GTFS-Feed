@@ -49,12 +49,14 @@ plugins:
   - +extend_plugin: TravisYML
     pre_install:
      - cpanm Archive::Extract
+     - cpanm Pod::Elemental::Transformer::Splint
 
 ---
 doctype: weaver
 
 plugins:
   - +config: Author::CSSON
+    splint: 1
 
 ---
 doctype: cpanfile

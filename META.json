@@ -85,6 +85,7 @@
             "Dist::Zilla::Plugin::TravisYML" : "1.15",
             "Dist::Zilla::Plugin::UploadToCPAN" : "0",
             "Pod::Elemental::Transformer::List" : "0",
+            "Pod::Elemental::Transformer::Splint" : "0.1201",
             "Pod::Weaver::Plugin::SingleEncoding" : "0",
             "Pod::Weaver::Plugin::Transformer" : "0",
             "Pod::Weaver::PluginBundle::CorePrep" : "0",

@@ -16,8 +16,6 @@ Opendata::GTFS::Feed - Parse General Transit Feeds (GTFS)
 
 Version 0.0201, released 2016-02-25.
 
-:splint classname Opendata::GTFS::Feed
-
 # SYNOPSIS
 
     use Opendata::GTFS::Feed;
@@ -34,7 +32,185 @@ All list attributes has the [Array](https://metacpan.org/pod/Moose::Meta::Attrib
 - `elements` -> `all_$attribute`, where `$attribute` is the attribute name.
 - `count` -> `count_$attribute`
 
-:splint attributes
+## file
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;"><a href="https://metacpan.org/pod/Types::Path::Tiny#AbsPath">AbsPath</a></td>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;">optional</td>
+    <td style="padding-left: 6px; padding-right: 6px; white-space: nowrap;">read-only</td>
+</tr>
+</table>
+
+<p>If file is given, the feed in the file will be parsed.</p>
+
+## url
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;"><a href="https://metacpan.org/pod/Types::URI#Uri">Uri</a></td>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;">optional</td>
+    <td style="padding-left: 6px; padding-right: 6px; white-space: nowrap;">read-only</td>
+</tr>
+</table>
+
+<p>If url is given, the feed at the url will be fetched and parsed.</p>
+
+## directory
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;"><a href="https://metacpan.org/pod/Types::Path::Tiny#AbsPath">AbsPath</a></td>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;">optional</td>
+    <td style="padding-left: 6px; padding-right: 6px; white-space: nowrap;">read-only</td>
+</tr>
+</table>
+
+<p>If only directory is given, it is expected to find a fully extracted feed in that directory. If C<directory> is given together with either file or url, the feed will be extracted into that directory (and remain there).</p>
+
+## agencies
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;"><a href="https://metacpan.org/pod/Types::Standard#ArrayRef">ArrayRef</a> [ <a href="https://metacpan.org/pod/Types::Standard#Agency">Agency</a> ]</td>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;">not in constructor</td>
+    <td style="padding-left: 6px; padding-right: 6px; white-space: nowrap;">read-only</td>
+</tr>
+</table>
+
+<p></p>
+
+## calendar\_dates
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;"><a href="https://metacpan.org/pod/Types::Standard#ArrayRef">ArrayRef</a> [ <a href="https://metacpan.org/pod/Types::Standard#CalendarDate">CalendarDate</a> ]</td>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;">not in constructor</td>
+    <td style="padding-left: 6px; padding-right: 6px; white-space: nowrap;">read-only</td>
+</tr>
+</table>
+
+<p></p>
+
+## calendars
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;"><a href="https://metacpan.org/pod/Types::Standard#ArrayRef">ArrayRef</a> [ <a href="https://metacpan.org/pod/Types::Standard#Calendar">Calendar</a> ]</td>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;">not in constructor</td>
+    <td style="padding-left: 6px; padding-right: 6px; white-space: nowrap;">read-only</td>
+</tr>
+</table>
+
+<p></p>
+
+## fare\_attributes
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;"><a href="https://metacpan.org/pod/Types::Standard#ArrayRef">ArrayRef</a> [ <a href="https://metacpan.org/pod/Types::Standard#FareAttribute">FareAttribute</a> ]</td>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;">not in constructor</td>
+    <td style="padding-left: 6px; padding-right: 6px; white-space: nowrap;">read-only</td>
+</tr>
+</table>
+
+<p></p>
+
+## fare\_rules
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;"><a href="https://metacpan.org/pod/Types::Standard#ArrayRef">ArrayRef</a> [ <a href="https://metacpan.org/pod/Types::Standard#FareRule">FareRule</a> ]</td>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;">not in constructor</td>
+    <td style="padding-left: 6px; padding-right: 6px; white-space: nowrap;">read-only</td>
+</tr>
+</table>
+
+<p></p>
+
+## frequencies
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;"><a href="https://metacpan.org/pod/Types::Standard#ArrayRef">ArrayRef</a> [ <a href="https://metacpan.org/pod/Types::Standard#Frequency">Frequency</a> ]</td>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;">not in constructor</td>
+    <td style="padding-left: 6px; padding-right: 6px; white-space: nowrap;">read-only</td>
+</tr>
+</table>
+
+<p></p>
+
+## routes
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;"><a href="https://metacpan.org/pod/Types::Standard#ArrayRef">ArrayRef</a> [ <a href="https://metacpan.org/pod/Types::Standard#Route">Route</a> ]</td>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;">not in constructor</td>
+    <td style="padding-left: 6px; padding-right: 6px; white-space: nowrap;">read-only</td>
+</tr>
+</table>
+
+<p></p>
+
+## shapes
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;"><a href="https://metacpan.org/pod/Types::Standard#ArrayRef">ArrayRef</a> [ <a href="https://metacpan.org/pod/Types::Standard#Shape">Shape</a> ]</td>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;">not in constructor</td>
+    <td style="padding-left: 6px; padding-right: 6px; white-space: nowrap;">read-only</td>
+</tr>
+</table>
+
+<p></p>
+
+## stop\_times
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;"><a href="https://metacpan.org/pod/Types::Standard#ArrayRef">ArrayRef</a> [ <a href="https://metacpan.org/pod/Types::Standard#StopTime">StopTime</a> ]</td>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;">not in constructor</td>
+    <td style="padding-left: 6px; padding-right: 6px; white-space: nowrap;">read-only</td>
+</tr>
+</table>
+
+<p></p>
+
+## stops
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;"><a href="https://metacpan.org/pod/Types::Standard#ArrayRef">ArrayRef</a> [ <a href="https://metacpan.org/pod/Types::Standard#Stop">Stop</a> ]</td>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;">not in constructor</td>
+    <td style="padding-left: 6px; padding-right: 6px; white-space: nowrap;">read-only</td>
+</tr>
+</table>
+
+<p></p>
+
+## transfers
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;"><a href="https://metacpan.org/pod/Types::Standard#ArrayRef">ArrayRef</a> [ <a href="https://metacpan.org/pod/Types::Standard#Transfer">Transfer</a> ]</td>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;">not in constructor</td>
+    <td style="padding-left: 6px; padding-right: 6px; white-space: nowrap;">read-only</td>
+</tr>
+</table>
+
+<p></p>
+
+## trips
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;"><a href="https://metacpan.org/pod/Types::Standard#ArrayRef">ArrayRef</a> [ <a href="https://metacpan.org/pod/Types::Standard#Trip">Trip</a> ]</td>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;">not in constructor</td>
+    <td style="padding-left: 6px; padding-right: 6px; white-space: nowrap;">read-only</td>
+</tr>
+</table>
+
+<p></p>
 
 # SOURCE
 

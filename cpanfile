@@ -1,4 +1,4 @@
-# This file was auto-generated from iller.yaml by Dist::Iller on 2016-02-25 14:26:24 UTC.
+# This file was auto-generated from iller.yaml by Dist::Iller on 2016-02-25 14:46:36 UTC.
 
 on runtime => sub {
     requires 'Archive::Extract' => '0';
@@ -94,6 +94,7 @@ on develop => sub {
     requires 'Dist::Zilla::Plugin::TravisYML' => '1.15';
     requires 'Dist::Zilla::Plugin::UploadToCPAN' => '0';
     requires 'Pod::Elemental::Transformer::List' => '0';
+    requires 'Pod::Elemental::Transformer::Splint' => '0.1201';
     requires 'Pod::Weaver::Plugin::SingleEncoding' => '0';
     requires 'Pod::Weaver::Plugin::Transformer' => '0';
     requires 'Pod::Weaver::PluginBundle::CorePrep' => '0';
