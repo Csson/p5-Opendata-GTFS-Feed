@@ -3,13 +3,14 @@ use warnings FATAL => 'all';
 use Test::More;
 use if $ENV{'AUTHOR_TESTING'}, 'Test::Warnings';
 
+# Silence Archive::Extract install-from-cpan warning to make builds pass on travis without bumping A::E version
 $SIG{'__WARN__'} = sub {
-    # Silence Archive::Extract install-from-cpan warning to make builds pass on travis without bumping A::E version
-    if(caller eq 'Archive::Extract') {
-        diag 'Caught warning: ' . shift;
+    my $warning = shift;
+    if($warning =~ m/Archive::Extract will be removed/) {
+        diag "Caught warning: $warning";
     }
     else {
-        warn shift;
+        warn $warning;
     }
 };
 
