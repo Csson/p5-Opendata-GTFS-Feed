@@ -6,7 +6,7 @@ package Opendata::GTFS::Type::Calendar;
 
 # ABSTRACT: Calendar
 # AUTHORITY
-our $VERSION = '0.0202';
+our $VERSION = '0.0203';
 
 use Opendata::GTFS::Feed::Elk;
 use Types::Standard qw/Maybe Str/;
