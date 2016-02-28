@@ -24,6 +24,9 @@ catch {
     if($_ =~ m/\b599\b/) {
         plan skip_all => 'Github errored';
     }
+    elsif($_ =~ m{no '/bin/unzip' program found}) {
+        plan skip_all => q{Tests needs unzip};
+    }
     else {
         die $_;
     }
