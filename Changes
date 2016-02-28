@@ -18,6 +18,7 @@ Revision history for Opendata-GTFS-Feed
  [Stats & Dependency Changes]
 
  [Testing]
+  - Skip zip test if unzip is missing.
 
 0.0201 2016-02-25T15:47:12Z UTC
  [Documentation]
